@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" />
+  <Modules>
+    <Module skippedDueTo="Filter" hash="36-D8-86-2E-D9-DF-4D-76-6E-C4-1A-AD-30-D5-94-11-A3-E7-D1-C5">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll</ModulePath>
+      <ModuleTime>2018-03-21T04:49:36Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="22-08-2D-6F-91-93-4F-1E-79-9F-AB-B3-63-3D-0C-5D-0A-C8-2C-0D">
+      <ModulePath>C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\packages\xunit.runner.console.2.3.1\tools\net452\xunit.console.x86.exe</ModulePath>
+      <ModuleTime>2017-10-27T03:34:48Z</ModuleTime>
+      <ModuleName>xunit.console.x86</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="C3-D8-3E-87-AB-33-CA-6F-66-61-A7-D7-50-2C-CF-D9-C0-D1-9D-8D">
+      <ModulePath>C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\packages\xunit.runner.console.2.3.1\tools\net452\xunit.runner.utility.net452.dll</ModulePath>
+      <ModuleTime>2017-10-27T03:34:48Z</ModuleTime>
+      <ModuleName>xunit.runner.utility.net452</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="90-BC-BE-B1-F2-84-BE-8F-78-5C-FB-A6-E3-66-B7-C7-F8-58-AF-D1">
+      <ModulePath>C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\packages\xunit.runner.console.2.3.1\tools\net452\xunit.abstractions.dll</ModulePath>
+      <ModuleTime>2017-10-27T03:34:48Z</ModuleTime>
+      <ModuleName>xunit.abstractions</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="C8-16-F2-BF-5A-ED-B0-98-DC-6E-FF-FA-91-F1-E5-CD-57-4A-95-D8">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</ModulePath>
+      <ModuleTime>2018-02-02T21:11:26Z</ModuleTime>
+      <ModuleName>System.Core</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="AF-CB-39-96-5C-64-99-49-A5-B6-10-16-01-7E-5D-4D-D6-EC-C7-32">
+      <ModulePath>C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\packages\xunit.runner.console.2.3.1\tools\net452\xunit.runner.reporters.net452.dll</ModulePath>
+      <ModuleTime>2017-10-27T03:34:48Z</ModuleTime>
+      <ModuleName>xunit.runner.reporters.net452</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="72-0F-DC-27-2C-A7-6C-6C-15-7F-68-81-20-4E-A8-75-A3-26-BE-82">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Net.Http\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll</ModulePath>
+      <ModuleTime>2018-02-02T21:11:26Z</ModuleTime>
+      <ModuleName>System.Net.Http</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="83-F8-6D-C5-F0-9F-9A-9F-6F-7A-6D-44-B5-BE-D0-0E-89-25-CA-C7">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</ModulePath>
+      <ModuleTime>2018-02-02T21:11:26Z</ModuleTime>
+      <ModuleName>System</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="43-4E-64-C1-BE-30-F2-65-4E-58-92-92-75-E2-7F-96-43-4E-62-06">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll</ModulePath>
+      <ModuleTime>2017-11-30T04:16:54Z</ModuleTime>
+      <ModuleName>System.Web</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="6B-86-54-62-96-7F-F5-FD-4B-8B-DA-7F-04-D1-BA-43-EC-82-F2-C5">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll</ModulePath>
+      <ModuleTime>2017-10-04T08:21:36Z</ModuleTime>
+      <ModuleName>System.Xml.Linq</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="58-2A-4C-0C-25-69-3C-E5-E8-8F-0E-35-DB-19-D0-78-0E-D1-10-FA">
+      <ModulePath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</ModulePath>
+      <ModuleTime>2017-11-22T20:59:08Z</ModuleTime>
+      <ModuleName>System.Xml</ModuleName>
+      <Classes />
+    </Module>
+  </Modules>
+</CoverageSession>

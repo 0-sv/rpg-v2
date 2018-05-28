@@ -1,0 +1,31 @@
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\obj\Debug\Unit Tests.csprojAssemblyReference.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\obj\Debug\Unit Tests.csproj.CoreCompileInputs.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\obj\Debug\XunitTests.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\obj\Debug\XunitTests.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.runner.reporters.net452.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.abstractions.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\XunitTests.dll.config
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\XunitTests.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\XunitTests.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FsCheck.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FsCheck.Xunit.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FSharp.Core.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\STVRogue.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\STVRogue_Main.exe
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.assert.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.core.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\STVRogue.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\STVRogue_Main.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\STVRogue_Main.exe.config
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FsCheck.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FsCheck.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FsCheck.Xunit.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FsCheck.Xunit.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\FSharp.Core.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.assert.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.core.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\bin\Debug\xunit.execution.desktop.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\XunitTests\obj\Debug\Unit Tests.csproj.CopyComplete
