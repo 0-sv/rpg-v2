@@ -24,6 +24,8 @@ namespace STVRogue.GameLogic
         }
         public void SetHP(int HP) => this.HP = HP;
         public int GetHP() => HP;
+
+        public Creature getCreature(string id) => return this;
     }
 
     public class Monster : Creature
