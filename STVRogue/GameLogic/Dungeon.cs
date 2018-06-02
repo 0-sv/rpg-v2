@@ -14,40 +14,48 @@ namespace STVRogue.GameLogic
 		public Node exitNode;
 		public List<Node> nodeList;
 		public int[] bridges;
-		public uint difficultyLevel;
-		/* a constant multiplier that determines the maximum number of monster-packs per node: */
-		public uint M;
-		Random randomnum = new Random();
-		/* To create a new dungeon with the specified difficult level and capacity multiplier */
-		public Dungeon(uint level, uint nodeCapacityMultiplier)
-		{ // call functions to fill the nodeList and connect the nodes
-			Logger.log("Creating a dungeon of difficulty level " + level + ", node capacity multiplier " + nodeCapacityMultiplier + ".");
-            nodeList = new List<Node>();
-			difficultyLevel = level;
-			M = nodeCapacityMultiplier;
+		public int difficultyLevel;
+        public int[] amountOfMonsters;
+		public int node;
+		Random rnd = new Random();
+        public int multiplier; 
+        public Player player;
+        public List<Pack> packs;
+        public List<Item> items;
+        
+		public Dungeon(int difficultyLevel, int multiplier, int numberOfMonsters, Player player) { 
+			this.difficultyLevel = difficultyLevel;
+			this.multiplier = multiplier;
+            this.player = player;
 			nodeList = new List<Node>();
-			PopulateNodeList(level);
+			PopulateNodeList();
 			startNode = nodeList[0];
 			exitNode = nodeList[nodeList.Count - 1];
+            amountOfMonsters = new int[difficultyLevel + 1];
+			packs = addpacks(numberOfMonsters);
+			
+            player.Move(startNode);
+			int totalMonsterHP = calculateTotalMonsterHP();
+			items = additems(totalMonsterHP, bridges[bridges.Length - 1], player.HPbase);
 		}
 
-		private void PopulateNodeList(uint level)
+		private void PopulateNodeList()
         {
-            InitializeBridges(level);
+            InitializeBridges();
             ConnectNodes(nodeList);
             ConnectBridges(nodeList);
             FinalizeConnectionofNonBridgeNodes(nodeList);
         }
 
-        private void InitializeBridges(uint level)
+        private void InitializeBridges()
         {
-            bridges = new int[level + 2];
-            InitializeNodeList(difficultyLevel, bridges);
-            bridges[level + 1] = nodeList.Count() - 1;
+            bridges = new int[difficultyLevel + 2];
+            InitializeNodeList();
+            bridges[difficultyLevel + 1] = nodeList.Count() - 1;
         }
 
         private void FinalizeConnectionofNonBridgeNodes(List<Node> nodeList)
-        { // connect nodes on a level randomly
+        { 
             int amountOfPassedBridges = 0;
             for (int i = 0; i < nodeList.Count - 1; i++)
             {
@@ -59,7 +67,7 @@ namespace STVRogue.GameLogic
                 { // max 4 neighbors per node
                     if (nodeList[i].neighbors.Count < 4 && nodeList[j].neighbors.Count < 4)
                     {
-                        if (randomnum.Next(1, 4) == 1)
+                        if (rnd.Next(1, 4) == 1)
                         {
                             nodeList[i].Connect(nodeList[j]);
                         }
@@ -84,14 +92,13 @@ namespace STVRogue.GameLogic
             }
         }
 
-        private void InitializeNodeList(uint level, int[] bridges)
+        private void InitializeNodeList()
 		{
-			Random rnd = new Random();
 			int nodesonthislevel;
 			int node_id = 0;
 
-			for (int i = 1; i <= level; i++)
-			{ // between 2 and 4 nodes on each level excluding the bridges
+			for (int i = 1; i <= difficultyLevel; i++)
+			{ 
 				nodesonthislevel = rnd.Next(2, 5);
 				for (int j = 0; j < nodesonthislevel; j++)
 				{
@@ -99,19 +106,106 @@ namespace STVRogue.GameLogic
 					node_id++;
 					nodeList.Add(n);
 				}
-				// add a bridge after each level
 				Bridge b = new Bridge(node_id.ToString());
 				nodeList.Add(b);
 				bridges[i] = node_id++;
 			}
 
-			// a dungeon always ends with nodes
 				nodesonthislevel = rnd.Next(3, 5);
 				for (int j = 0; j < nodesonthislevel; j++)
 				{
 					Node n = new Node(node_id++.ToString());
 					nodeList.Add(n);
 				}
+		}
+
+        public List<Pack> addpacks(int numberOfMonsters)
+		{ // add packs to the dungeon
+			int maxMonstersOnThisLevel, monstersOnThisLevel = 0, monstersInDungeon = 0;
+			int pack_id = -1, count = 0, min, numbers;
+			List<int> nodesOnThisLevelInRandomOrder;
+
+			List<Pack> packs = new List<Pack>();
+			for (int i = 0; i < bridges.Length - 1; i++)
+			{
+				min = bridges[i] + 1;
+				numbers = bridges[i + 1] - min + 1;
+				nodesOnThisLevelInRandomOrder = Enumerable.Range(min, numbers).OrderBy(x => rnd.Next()).ToList();
+				if (i < bridges.Length - 2)
+				{ // calculate the maximum amount of monsters allowed on this level
+					maxMonstersOnThisLevel = (2 * (i + 1) * numberOfMonsters) / ((difficultyLevel + 2) * (difficultyLevel + 1));
+				}
+				else
+				{// add all monsters that are left to the final level
+					maxMonstersOnThisLevel = numberOfMonsters - monstersInDungeon;
+				}
+				count = 0;
+				monstersOnThisLevel = 0;
+				// add monsters to this level while the limit hasn't been reached yet
+				while (monstersOnThisLevel < maxMonstersOnThisLevel)
+				{
+
+					numberOfMonsters = Math.Min(maxMonstersOnThisLevel - monstersOnThisLevel, (multiplier * (i + 1)));
+
+					monstersOnThisLevel += numberOfMonsters;
+					// create a new pack and update its location
+					Pack pack = new Pack(pack_id++.ToString(), numberOfMonsters);
+					pack.location = nodeList[nodesOnThisLevelInRandomOrder[count]];
+					nodeList[nodesOnThisLevelInRandomOrder[count++]].packs.Add(pack);
+					packs.Add(pack);
+					if (count > nodesOnThisLevelInRandomOrder.Count - 1)
+					{ // throw exception if amount of monsters and nodeCapacityMultiplier are out of proportion
+						throw new GameCreationException("Amount of monsters and nodeCapacityMultiplier are not compatible");
+					}
+				}
+				amountOfMonsters[i] = monstersOnThisLevel;
+
+				monstersInDungeon += monstersOnThisLevel;
+			}
+			return packs;
+		}
+
+		public int calculateTotalMonsterHP()
+		{ // calculate the hp of all monsters, this is later used to determine the amount of HealingPotions in the dungeon.
+			int totalHP = 0;
+			foreach (Pack p in packs)
+			{
+				foreach (Monster m in p.members)
+				{
+					totalHP += m.GetHP();
+				}
+			}
+			return totalHP;
+		}
+
+		public List<Item> additems(int totalMonsterHP, int nodeMax, int playerHP)
+		{ // add items to the dungeon
+			List<Item> items = new List<Item>();
+			// calculate the hp limit
+			int HPlimit = (int)(totalMonsterHP * 0.8);
+			int itemAndPlayerHP = playerHP;
+			int item_id = -1;
+			int count = 0;
+			List<int> allNodesInRandomOrder = Enumerable.Range(1, nodeMax - 1).OrderBy(x => rnd.Next()).ToList();
+			while ((itemAndPlayerHP + 11) < HPlimit && count < allNodesInRandomOrder.Count)
+			{ // add healingpotions until the limit is reached
+				HealingPotion item = new HealingPotion(item_id++.ToString());
+				item.location = nodeList[allNodesInRandomOrder[count]];
+				nodeList[allNodesInRandomOrder[count++]].items.Add(item);
+				itemAndPlayerHP += item.HPvalue;
+				items.Add(item);
+			}
+			while (count < allNodesInRandomOrder.Count - 1)
+			{ // for now we decided every node has a 1 in 20 chance to contain a Crystal
+				if (rnd.Next(1, 21) == 5)
+				{
+					Crystal item = new Crystal(item_id++.ToString());
+					item.location = item.location = nodeList[allNodesInRandomOrder[count]];
+					items.Add(item);
+				}
+				count++;
+			}
+			return items;
 		}
 
 		/* Return a shortest path between node u and node v */
@@ -166,7 +260,7 @@ namespace STVRogue.GameLogic
             return new List<Node>();
         }
 
-        public uint Level(Node d)
+        public int Level(Node d)
 		{
 			return p.countNumberOfBridges(startNode, exitNode);
 		}

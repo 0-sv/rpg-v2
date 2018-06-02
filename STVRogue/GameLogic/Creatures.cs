@@ -25,7 +25,7 @@ namespace STVRogue.GameLogic
         public void SetHP(int HP) => this.HP = HP;
         public int GetHP() => HP;
 
-        public Creature getCreature(string id) => return this;
+        public Creature getCreature(string id) => this;
     }
 
     public class Monster : Creature
@@ -47,7 +47,7 @@ namespace STVRogue.GameLogic
     public class Player : Creature
     {
         public Boolean accelerated;
-        public uint KillPoint;
+        public int KillPoint;
         public List<Item> bag;
         public bool attacking;
 
@@ -113,7 +113,7 @@ namespace STVRogue.GameLogic
                 }
                 int packCount = foe_.GetPack().members.Count;
                 foe_.GetPack().members.RemoveAll(target => target.GetHP() <= 0);
-                KillPoint += (uint)(packCount - foe_.GetPack().members.Count);
+                KillPoint += (int)(packCount - foe_.GetPack().members.Count);
                 accelerated = false;
             }
         }
