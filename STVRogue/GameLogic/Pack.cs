@@ -14,6 +14,7 @@ namespace STVRogue.GameLogic
         public int startingHP = 0;
         public Node location;
         public Dungeon dungeon;
+        public alerted = false; 
 
         public Pack(string id, int n)
         {

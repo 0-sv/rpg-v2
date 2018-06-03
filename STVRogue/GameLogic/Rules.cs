@@ -16,18 +16,6 @@ namespace STVRogue.GameLogic {
         public override bool IsActive() {
             return true;
         }
-
-        protected List<Node> IsolateZone () {
-            List<Node> result = new List<Node>();
-            // WIP 
-            for (int index = 0; index <= d.Level(d.player.location); index++) {
-                if (ReferenceEquals(d.nodeList[index], new Bridge())) {
-                    index++;
-                }
-
-            }
-            return result;
-        }
     }
 
     public class RZone : BaseRule {
@@ -39,10 +27,35 @@ namespace STVRogue.GameLogic {
     }
 
     public class RAlert : BaseRule {
-        public RAlert(Dungeon d) : base(d) {}
+        Zone z;
+        public RAlert(Zone z) : base(d) {
+            this.z = z;
+        }
+
+        public void AlertMonsters () {
+            foreach (Node n in z.nodes) {
+                foreach (Pack p in n.packs) {
+                    p.alerted = true;
+                }
+            }
+        }
+
+        public void DeAlertMonsters () {
+            foreach (Node n in z.nodes) {
+                foreach (Pack p in n.packs) {
+                    p.alerted = false;
+                }
+            }
+        }
     }
 
     public class REndzone : BaseRule {
-        public REndzone(Dungeon d) : base(d) {}
+        private Zone z;
+
+        public REndzone(Zone z) : base(d) {
+            this.z = z;
+        }
+
+        
     }
 }
