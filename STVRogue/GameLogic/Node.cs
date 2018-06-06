@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using STVRogue.GameLogic;
+using STVRogue.Utils;
 
 namespace STVRogue.GameLogic {
     public class Node
@@ -119,5 +121,4 @@ namespace STVRogue.GameLogic {
 	}
 }
 
-}
 

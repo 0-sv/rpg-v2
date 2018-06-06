@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using STVRogue.Gamelogic;
 using STVRogue.GameLogic;
 
 namespace STVRogue.GameLogic {

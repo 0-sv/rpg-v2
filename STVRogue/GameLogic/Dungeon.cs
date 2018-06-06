@@ -265,5 +265,6 @@ namespace STVRogue.GameLogic
 			return p.countNumberOfBridges(startNode, exitNode);
 		}
 	}
+}
 
 	

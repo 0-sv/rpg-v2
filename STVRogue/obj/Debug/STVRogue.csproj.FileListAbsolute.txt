@@ -4,3 +4,7 @@ C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\STVRogue\obj\Debug
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\STVRogue\obj\Debug\STVRogue.pdb
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\STVRogue\obj\Debug\STVRogue.csproj.CoreCompileInputs.cache
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-1\STVRogue\obj\Debug\STVRogue.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
+C:\Users\Admin\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb
