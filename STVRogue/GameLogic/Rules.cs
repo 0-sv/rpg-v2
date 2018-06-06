@@ -16,6 +16,22 @@ namespace STVRogue.GameLogic {
         public override bool IsActive() {
             return true;
         }
+
+        public virtual void AlertMonsters () {
+            foreach (Node n in z.nodes) {
+                foreach (Pack p in n.packs) {
+                    p.alerted = true;
+                }
+            }
+        }
+
+        public virtual void DeAlertMonsters () {
+            foreach (Node n in z.nodes) {
+                foreach (Pack p in n.packs) {
+                    p.alerted = false;
+                }
+            }
+        }
     }
 
     public class RZone : BaseRule {
@@ -32,20 +48,13 @@ namespace STVRogue.GameLogic {
             this.z = z;
         }
 
-        public void AlertMonsters () {
-            foreach (Node n in z.nodes) {
-                foreach (Pack p in n.packs) {
-                    p.alerted = true;
-                }
-            }
+        public override void AlertMonsters () {
+            base.AlertMonsters();
         }
+            
 
-        public void DeAlertMonsters () {
-            foreach (Node n in z.nodes) {
-                foreach (Pack p in n.packs) {
-                    p.alerted = false;
-                }
-            }
+        public override void DeAlertMonsters () {
+            base.DeAlertMonsters();
         }
     }
 
@@ -56,6 +65,13 @@ namespace STVRogue.GameLogic {
             this.z = z;
         }
 
-        
+        public void AlertMonsters() {
+            if (z.d.Level(z.d.player.location) != z.d.Level(z.nodes[0])) {
+                return;
+            }
+            else {
+                base.AlertMonsters();
+            }
+        }
     }
 }
