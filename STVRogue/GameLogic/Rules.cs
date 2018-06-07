@@ -9,9 +9,9 @@ namespace STVRogue.GameLogic {
     }
 
     public class BaseRule : Rule {
-        protected Dungeon d;
-        public BaseRule (Dungeon d) {
-            this.d = d;
+        protected Zone z;
+        public BaseRule (Zone z) {
+            this.z = z;
         }
 
         public override bool IsActive() {
@@ -36,16 +36,15 @@ namespace STVRogue.GameLogic {
     }
 
     public class RZone : BaseRule {
-        public RZone(Dungeon d) : base(d) {}
+        public RZone(Zone z) : base(z) {}
     }
 
     public class RNode : BaseRule {
-        public RNode(Dungeon d) : base(d) {}
+        public RNode(Zone z) : base(z) {}
     }
 
     public class RAlert : BaseRule {
-        Zone z;
-        public RAlert(Zone z) : base(d) {
+        public RAlert(Zone z) : base(z) {
             this.z = z;
         }
 
@@ -60,19 +59,12 @@ namespace STVRogue.GameLogic {
     }
 
     public class REndzone : BaseRule {
-        private Zone z;
-
-        public REndzone(Zone z) : base(d) {
+        public REndzone(Zone z) : base(z) {
             this.z = z;
         }
 
-        public void AlertMonsters() {
-            if (z.d.Level(z.d.player.location) != z.d.Level(z.nodes[0])) {
-                return;
-            }
-            else {
-                base.AlertMonsters();
-            }
+        public override void AlertMonsters() {
+            base.AlertMonsters();
         }
     }
 }
