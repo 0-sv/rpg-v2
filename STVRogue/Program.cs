@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using STVRogue.GameLogic;
+using System.Windows.Forms;
 
 namespace STVRogue {
     class Program {
@@ -12,7 +13,8 @@ namespace STVRogue {
 
             while (game.player.HP != 0) {
                 game.Update();
-            }
+				Application.Run(new Form1());
+			}
         }
     }
 }

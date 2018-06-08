@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using STVRogue.Gamelogic;
 using STVRogue.Utils;
+using System.Windows.Forms;
 
 namespace STVRogue.GameLogic
 {
@@ -21,11 +22,12 @@ namespace STVRogue.GameLogic
 		{
 			Logger.log("Creating a game of difficulty level " + difficultyLevel + ", node capacity multiplier "
 					   + nodeCapacityMultiplier + ", and " + numberOfMonsters + " monsters.");
-
+			
 			player = new Player("ShouldBeReplacedWithUI::EnterName");
-            player.Move(dungeon.startNode);
-
 			dungeon = new Dungeon(difficultyLevel, nodeCapacityMultiplier, numberOfMonsters, player);
+			player.Move(dungeon.startNode);
+
+			
 			amountOfMonstersPerLevel = new int[difficultyLevel + 1];
 			
 			packs = dungeon.addpacks(numberOfMonsters);
@@ -41,12 +43,24 @@ namespace STVRogue.GameLogic
 				alert.DeAlertMonsters();
 			}
 			else {
-				Command normalCommand = new Command(player, Console.ReadKey().Key);
-				normalCommand.Execute();
+			//	UpdateUI();
+			//	Command normalCommand = new Command(player, Console.ReadKey().Key);
+			//	normalCommand.Execute();
 			}
 		}
+		/*
+		public void UpdateUI()
+		{
+			for(int i = 0;i<player.location.neighbors.Count;i++)
+			{
+				form.button1.Text = "Go to Node " + dungeon.nodeList[i].id;
+			}
+		}
+		*/
 	}
 
+
+	
 	public class GameCreationException : Exception
 	{
 		public GameCreationException() { }
