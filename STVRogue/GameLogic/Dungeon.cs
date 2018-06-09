@@ -184,23 +184,30 @@ namespace STVRogue.GameLogic
 			// calculate the hp limit
 			int HPlimit = (int)(totalMonsterHP * 0.8);
 			int itemAndPlayerHP = playerHP;
-			int item_id = -1;
+			int item_id = 0;
 			int count = 0;
 			List<int> allNodesInRandomOrder = Enumerable.Range(1, nodeMax - 1).OrderBy(x => rnd.Next()).ToList();
+			Console.WriteLine(allNodesInRandomOrder.Count());
 			while ((itemAndPlayerHP + 11) < HPlimit && count < allNodesInRandomOrder.Count)
 			{ // add healingpotions until the limit is reached
-				HealingPotion item = new HealingPotion(item_id++.ToString());
-				item.location = nodeList[allNodesInRandomOrder[count]];
-				nodeList[allNodesInRandomOrder[count++]].items.Add(item);
-				itemAndPlayerHP += item.HPvalue;
-				items.Add(item);
+				if (rnd.Next(1, 10) == 1)
+				{
+					HealingPotion item = new HealingPotion(item_id++.ToString());
+					item.location = nodeList[allNodesInRandomOrder[count]];
+					nodeList[allNodesInRandomOrder[count]].items.Add(item);
+					itemAndPlayerHP += item.HPvalue;
+					items.Add(item);
+				}
+				count++;
 			}
+			count = 0;
 			while (count < allNodesInRandomOrder.Count - 1)
 			{ // for now we decided every node has a 1 in 20 chance to contain a Crystal
-				if (rnd.Next(1, 21) == 5)
+				if (rnd.Next(1, 13) == 1)
 				{
 					Crystal item = new Crystal(item_id++.ToString());
-					item.location = item.location = nodeList[allNodesInRandomOrder[count]];
+					item.location = nodeList[allNodesInRandomOrder[count]];
+					nodeList[allNodesInRandomOrder[count]].items.Add(item);
 					items.Add(item);
 				}
 				count++;

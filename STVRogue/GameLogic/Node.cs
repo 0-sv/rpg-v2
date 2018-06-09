@@ -30,9 +30,13 @@ namespace STVRogue.GameLogic {
 
 		public void Combat(Player player, int pack, int monster)
         {
-      //      Command combatCommand = new Command(player, Console.ReadKey().Key);
-       //     combatCommand.Execute();
-			player.Attack(packs[pack].members[monster]);
+			//      Command combatCommand = new Command(player, Console.ReadKey().Key);
+			//     combatCommand.Execute();
+			if (player.attacking)
+			{
+				player.Attack(packs[pack].members[monster]);
+				player.attacking = false;
+			}
 			if (!packs[pack].members.Any())
 			{
 				packs.Remove(packs[pack]);

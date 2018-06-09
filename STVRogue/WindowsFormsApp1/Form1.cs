@@ -20,12 +20,12 @@ namespace STVRogue
 		public Form1()
 		{
 			InitializeComponent();
-			
+
 
 			game = new Game(5, 1, 20);
 			foreach (Node node in game.dungeon.nodeList)
 			{
-				foreach(Pack pack in node.packs)
+				foreach (Pack pack in node.packs)
 				{
 					Console.WriteLine("node" + pack.location.id);
 					Console.WriteLine(pack.members.Count);
@@ -33,13 +33,22 @@ namespace STVRogue
 				}
 			}
 
-				UpdateGame();
+			UpdateGame();
 		}
 
 		public void UpdateGame()
 		{
 			if (game.player.HP == 0)
 			{
+				button1.Hide();
+				button2.Hide();
+				button5.Hide();
+				button6.Hide();
+				button7.Hide();
+				HideButtons();
+				label8.Text = "Player HP: " + game.player.HP + "/" + game.player.HPbase;
+				label10.Text = "You died";
+
 			}
 			else
 			{
@@ -48,11 +57,11 @@ namespace STVRogue
 					//		inCombat = true;
 					CombatUI();
 					inCombat = true;
-				//	Zone z = new Zone(game.dungeon);
-				//	RAlert alert = new RAlert(z);
-				//	alert.AlertMonsters();
-				//	game.player.location.Combat(game.player);
-				//	alert.DeAlertMonsters();
+					//	Zone z = new Zone(game.dungeon);
+					//	RAlert alert = new RAlert(z);
+					//	alert.AlertMonsters();
+					//	game.player.location.Combat(game.player);
+					//	alert.DeAlertMonsters();
 				}
 				else
 				{
@@ -85,10 +94,11 @@ namespace STVRogue
 			{
 				button4.Hide();
 			}
-			label5.Text = "Node " + player.location.id;
+			label4.Text = "Current location: Node " + player.location.id;
 			label6.Text = game.player.bag.OfType<HealingPotion>().Count().ToString();
 			label7.Text = game.player.bag.OfType<Crystal>().Count().ToString();
-			label9.Text = game.player.HP + "/" + game.player.HPbase;
+			label8.Text = "Player HP: " + game.player.HP + "/" + game.player.HPbase;
+			button6.Text = "Do nothing";
 			button7.Hide();
 			button8.Hide();
 			button9.Hide();
@@ -101,10 +111,10 @@ namespace STVRogue
 
 		public void CombatUI()
 		{
-			label5.Text = "Node " + game.player.location.id;
+			label4.Text = "Current location: Node " + game.player.location.id;
 			label6.Text = game.player.bag.OfType<HealingPotion>().Count().ToString();
 			label7.Text = game.player.bag.OfType<Crystal>().Count().ToString();
-			label9.Text = game.player.HP + "/" + game.player.HPbase;
+			label8.Text = "Player HP: " + game.player.HP + "/" + game.player.HPbase;
 
 			if (!packChosen)
 			{
@@ -122,7 +132,7 @@ namespace STVRogue
 				button6.Show();
 				button7.Show();
 				button6.Text = "Use Crystal";
-				
+
 				button8.Hide();
 				button9.Hide();
 				button10.Hide();
@@ -131,10 +141,10 @@ namespace STVRogue
 			}
 			else
 			{
-				HideButtons();				
-			//	button5.Hide();
-			//	button6.Hide();
-		//		button7.Hide();
+				HideButtons();
+				//	button5.Hide();
+				//	button6.Hide();
+				//		button7.Hide();
 				button1.Text = "Attack monster 1 (HP " + game.player.location.packs[packBeingAttacked].members[0].HP + "/" + game.player.location.packs[packBeingAttacked].members[0].HPbase + ")";
 				if (game.player.location.packs[packBeingAttacked].members.Count > 1)
 				{
@@ -161,6 +171,16 @@ namespace STVRogue
 					button9.Show();
 					button9.Text = "Attack monster 6 (HP " + game.player.location.packs[packBeingAttacked].members[5].HP + "/" + game.player.location.packs[packBeingAttacked].members[5].HPbase + ")";
 				}
+				if (game.player.location.packs[packBeingAttacked].members.Count > 6)
+				{
+					button10.Show();
+					button10.Text = "Attack monster 7 (HP " + game.player.location.packs[packBeingAttacked].members[6].HP + "/" + game.player.location.packs[packBeingAttacked].members[6].HPbase + ")";
+				}
+				if (game.player.location.packs[packBeingAttacked].members.Count > 7)
+				{
+					button10.Show();
+					button10.Text = "Attack monster 8 (HP " + game.player.location.packs[packBeingAttacked].members[7].HP + "/" + game.player.location.packs[packBeingAttacked].members[7].HPbase + ")";
+				}
 
 			}
 
@@ -176,14 +196,20 @@ namespace STVRogue
 			button10.Hide();
 			button11.Hide();
 		}
+
+		public void PlayerMove(Button button)
+		{
+			int x = Int32.Parse(button.Text.Split(' ')[3]);
+			game.player.Move(game.dungeon.nodeList[x]);
+			label10.Text = "Player moved to Node " + x;
+			UpdateGame();
+		}
 		private void button1_Click(object sender, EventArgs e)
 		{
 
 			if (!inCombat)
 			{
-				int x = Int32.Parse(button1.Text.Split(' ')[3]);
-				game.player.location = game.dungeon.nodeList[x];
-				UpdateGame();
+				PlayerMove(button1);
 			}
 			else if (!packChosen)
 			{
@@ -194,7 +220,17 @@ namespace STVRogue
 			}
 			else
 			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 1 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
 				game.player.location.Combat(game.player, packBeingAttacked, 0);
+				
 				packChosen = false;
 				UpdateGame();
 			}
@@ -206,9 +242,7 @@ namespace STVRogue
 		{
 			if (!inCombat)
 			{
-				int x = Int32.Parse(button2.Text.Split(' ')[3]);
-				game.player.location = game.dungeon.nodeList[x];
-				UpdateGame();
+				PlayerMove(button2);
 			}
 			else if (!packChosen)
 			{
@@ -219,7 +253,16 @@ namespace STVRogue
 			}
 			else
 			{
-				game.player.location.Combat(game.player,packBeingAttacked, 1);
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 2 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
+				game.player.location.Combat(game.player, packBeingAttacked, 1);
 				packChosen = false;
 				UpdateGame();
 			}
@@ -230,9 +273,7 @@ namespace STVRogue
 		{
 			if (!inCombat)
 			{
-				int x = Int32.Parse(button3.Text.Split(' ')[3]);
-				game.player.location = game.dungeon.nodeList[x];
-				UpdateGame();
+				PlayerMove(button3);
 			}
 			else if (!packChosen)
 			{
@@ -243,6 +284,15 @@ namespace STVRogue
 			}
 			else
 			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 1 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
 				game.player.location.Combat(game.player, packBeingAttacked, 2);
 				packChosen = false;
 				UpdateGame();
@@ -252,9 +302,7 @@ namespace STVRogue
 		{
 			if (!inCombat)
 			{
-				int x = Int32.Parse(button4.Text.Split(' ')[3]);
-				game.player.location = game.dungeon.nodeList[x];
-				UpdateGame();
+				PlayerMove(button4);
 			}
 			else if (!packChosen)
 			{
@@ -265,6 +313,15 @@ namespace STVRogue
 			}
 			else
 			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 1 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
 				game.player.location.Combat(game.player, packBeingAttacked, 3);
 				packChosen = false;
 				UpdateGame();
@@ -273,11 +330,22 @@ namespace STVRogue
 
 		private void button5_Click(object sender, EventArgs e)
 		{
+
 			if (game.player.bag.OfType<HealingPotion>().Any())
 			{
 				game.player.Heal();
+				label10.Text = "Player used a healing potion";
+				if (inCombat)
+				{
+					game.player.location.Combat(game.player, 0, 0);
+				}
+				packChosen = false;
+				UpdateGame();
 			}
-			UpdateGame();
+			else
+			{
+				label10.Text = "No healing potions available!";
+			}
 		}
 		private void button6_Click(object sender, EventArgs e)
 		{
@@ -285,16 +353,35 @@ namespace STVRogue
 			{
 				if (game.player.bag.OfType<Crystal>().Any())
 				{
-					game.player.Accelerate();
+					if (game.player.accelerated)
+					{
+						label10.Text = "Player is already accelerated";		
+					}
+					else
+					{
+						label10.Text = "Player is now accelerated";
+						game.player.Accelerate();
+						game.player.location.Combat(game.player, 0, 0);
+					}	
+				}			
+				else
+				{
+					label10.Text = "No crystals available!";
 				}
 			}
+			
+			packChosen = false;
 			UpdateGame();
 		}
 		private void button7_Click(object sender, EventArgs e)
 		{
 			game.player.Flee();
+			label10.Text = "Player fled the battle";
+			packChosen = false;
+			UpdateGame();
 
 		}
+
 		private void label1_Click(object sender, EventArgs e)
 		{
 
@@ -315,6 +402,107 @@ namespace STVRogue
 
 		}
 
-		
+		private void button8_Click(object sender, EventArgs e)
+		{
+			if (!packChosen)
+			{
+				packBeingAttacked = 4;
+				packChosen = true;
+				CombatUI();
+			}
+			else
+			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 5 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
+				game.player.location.Combat(game.player, packBeingAttacked, 4);
+				packChosen = false;
+				UpdateGame();
+			}
+		}
+
+		private void button9_Click(object sender, EventArgs e)
+		{
+			if (!packChosen)
+			{
+
+				packBeingAttacked = 5;
+				packChosen = true;
+				CombatUI();
+			}
+			else
+			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 6 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
+				game.player.location.Combat(game.player, packBeingAttacked, 5);
+				packChosen = false;
+				UpdateGame();
+			}
+		}
+
+		private void button10_Click(object sender, EventArgs e)
+		{
+			 if (!packChosen)
+			{
+
+				packBeingAttacked = 6;
+				packChosen = true;
+				CombatUI();
+			}
+			else
+			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 7 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
+				game.player.location.Combat(game.player, packBeingAttacked, 6);
+				packChosen = false;
+				UpdateGame();
+			}
+		}
+
+		private void button11_Click(object sender, EventArgs e)
+		{
+			 if (!packChosen)
+			{
+
+				packBeingAttacked = 7;
+				packChosen = true;
+				CombatUI();
+			}
+			else
+			{
+				game.player.attacking = true;
+				if (!game.player.accelerated)
+				{
+					label10.Text = "Player attacked monster 8 of pack " + (packBeingAttacked+1);
+				}
+				else
+				{
+					label10.Text = "Player attacked all monsters of pack " + (packBeingAttacked+1);
+				}
+				game.player.location.Combat(game.player, packBeingAttacked, 7);
+				packChosen = false;
+				UpdateGame();
+			}
+		}
 	}
 }
