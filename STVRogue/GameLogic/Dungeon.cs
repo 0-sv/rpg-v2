@@ -121,10 +121,9 @@ namespace STVRogue.GameLogic
 
         public List<Pack> addpacks(int numberOfMonsters)
 		{ // add packs to the dungeon
-			int maxMonstersOnThisLevel, monstersOnThisLevel = 0, monstersInDungeon = 0;
+			int maxMonstersOnThisLevel, monstersOnThisLevel = 0, monstersInDungeon = 0, monstersOnNode = 0;
 			int pack_id = -1, count = 0, min, numbers;
 			List<int> nodesOnThisLevelInRandomOrder;
-
 			List<Pack> packs = new List<Pack>();
 			for (int i = 0; i < bridges.Length - 1; i++)
 			{
@@ -137,6 +136,7 @@ namespace STVRogue.GameLogic
 				}
 				else
 				{// add all monsters that are left to the final level
+					
 					maxMonstersOnThisLevel = numberOfMonsters - monstersInDungeon;
 				}
 				count = 0;
@@ -145,11 +145,11 @@ namespace STVRogue.GameLogic
 				while (monstersOnThisLevel < maxMonstersOnThisLevel)
 				{
 
-					numberOfMonsters = Math.Min(maxMonstersOnThisLevel - monstersOnThisLevel, (multiplier * (i + 1)));
+					monstersOnNode = Math.Min(maxMonstersOnThisLevel - monstersOnThisLevel, (multiplier * (i + 1)));
 
-					monstersOnThisLevel += numberOfMonsters;
+					monstersOnThisLevel += monstersOnNode;
 					// create a new pack and update its location
-					Pack pack = new Pack(pack_id++.ToString(), numberOfMonsters);
+					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode);
 					pack.location = nodeList[nodesOnThisLevelInRandomOrder[count]];
 					nodeList[nodesOnThisLevelInRandomOrder[count++]].packs.Add(pack);
 					packs.Add(pack);

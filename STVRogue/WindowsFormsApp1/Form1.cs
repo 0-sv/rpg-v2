@@ -20,10 +20,20 @@ namespace STVRogue
 		public Form1()
 		{
 			InitializeComponent();
+			
 
+			game = new Game(5, 1, 20);
+			foreach (Node node in game.dungeon.nodeList)
+			{
+				foreach(Pack pack in node.packs)
+				{
+					Console.WriteLine("node" + pack.location.id);
+					Console.WriteLine(pack.members.Count);
+					Console.WriteLine("pakcs" + game.packs.Count());
+				}
+			}
 
-			game = new Game(5, 2, 10);
-			UpdateGame();
+				UpdateGame();
 		}
 
 		public void UpdateGame()
@@ -38,11 +48,11 @@ namespace STVRogue
 					//		inCombat = true;
 					CombatUI();
 					inCombat = true;
-					Zone z = new Zone(game.dungeon);
-					RAlert alert = new RAlert(z);
-					alert.AlertMonsters();
-					game.player.location.Combat(game.player);
-					alert.DeAlertMonsters();
+				//	Zone z = new Zone(game.dungeon);
+				//	RAlert alert = new RAlert(z);
+				//	alert.AlertMonsters();
+				//	game.player.location.Combat(game.player);
+				//	alert.DeAlertMonsters();
 				}
 				else
 				{
@@ -53,7 +63,9 @@ namespace STVRogue
 		}
 		public void UpdateUI(Player player)
 		{
+			inCombat = false;
 			button1.Text = "Go to Node " + Int32.Parse(player.location.neighbors[0].id);
+			button2.Show();
 			button2.Text = "Go to Node " + Int32.Parse(player.location.neighbors[1].id);
 			if (player.location.neighbors.Count > 2)
 			{
@@ -76,6 +88,7 @@ namespace STVRogue
 			label5.Text = "Node " + player.location.id;
 			label6.Text = game.player.bag.OfType<HealingPotion>().Count().ToString();
 			label7.Text = game.player.bag.OfType<Crystal>().Count().ToString();
+			label9.Text = game.player.HP + "/" + game.player.HPbase;
 			button7.Hide();
 			button8.Hide();
 			button9.Hide();
@@ -88,6 +101,11 @@ namespace STVRogue
 
 		public void CombatUI()
 		{
+			label5.Text = "Node " + game.player.location.id;
+			label6.Text = game.player.bag.OfType<HealingPotion>().Count().ToString();
+			label7.Text = game.player.bag.OfType<Crystal>().Count().ToString();
+			label9.Text = game.player.HP + "/" + game.player.HPbase;
+
 			if (!packChosen)
 			{
 				button1.Text = "Attack pack 1";
@@ -99,9 +117,12 @@ namespace STVRogue
 				}
 				button3.Hide();
 				button4.Hide();
-				button5.Hide();
-				button6.Hide();
-				button7.Hide();
+
+				button5.Show();
+				button6.Show();
+				button7.Show();
+				button6.Text = "Use Crystal";
+				
 				button8.Hide();
 				button9.Hide();
 				button10.Hide();
@@ -110,20 +131,51 @@ namespace STVRogue
 			}
 			else
 			{
-				button2.Show();
-				button3.Show();
-				button4.Show();
-				button5.Show();
-				button6.Show();
-				button7.Show();
+				HideButtons();				
+			//	button5.Hide();
+			//	button6.Hide();
+		//		button7.Hide();
 				button1.Text = "Attack monster 1 (HP " + game.player.location.packs[packBeingAttacked].members[0].HP + "/" + game.player.location.packs[packBeingAttacked].members[0].HPbase + ")";
-				button2.Text = "Attack monster 2 (HP " + game.player.location.packs[packBeingAttacked].members[1].HP + "/" + game.player.location.packs[packBeingAttacked].members[1].HPbase + ")";
+				if (game.player.location.packs[packBeingAttacked].members.Count > 1)
+				{
+					button2.Show();
+					button2.Text = "Attack monster 2 (HP " + game.player.location.packs[packBeingAttacked].members[1].HP + "/" + game.player.location.packs[packBeingAttacked].members[1].HPbase + ")";
+				}
+				if (game.player.location.packs[packBeingAttacked].members.Count > 2)
+				{
+					button3.Show();
+					button3.Text = "Attack monster 3 (HP " + game.player.location.packs[packBeingAttacked].members[2].HP + "/" + game.player.location.packs[packBeingAttacked].members[2].HPbase + ")";
+				}
+				if (game.player.location.packs[packBeingAttacked].members.Count > 3)
+				{
+					button4.Show();
+					button4.Text = "Attack monster 4 (HP " + game.player.location.packs[packBeingAttacked].members[3].HP + "/" + game.player.location.packs[packBeingAttacked].members[3].HPbase + ")";
+				}
+				if (game.player.location.packs[packBeingAttacked].members.Count > 4)
+				{
+					button8.Show();
+					button8.Text = "Attack monster 5 (HP " + game.player.location.packs[packBeingAttacked].members[4].HP + "/" + game.player.location.packs[packBeingAttacked].members[4].HPbase + ")";
+				}
+				if (game.player.location.packs[packBeingAttacked].members.Count > 5)
+				{
+					button9.Show();
+					button9.Text = "Attack monster 6 (HP " + game.player.location.packs[packBeingAttacked].members[5].HP + "/" + game.player.location.packs[packBeingAttacked].members[5].HPbase + ")";
+				}
 
 			}
 
 
 		}
 
+		public void HideButtons()
+		{
+			button3.Hide();
+			button4.Hide();
+			button8.Hide();
+			button9.Hide();
+			button10.Hide();
+			button11.Hide();
+		}
 		private void button1_Click(object sender, EventArgs e)
 		{
 
@@ -142,7 +194,8 @@ namespace STVRogue
 			}
 			else
 			{
-				game.player.Attack(game.player.location.packs[packBeingAttacked].members[0]);
+				game.player.location.Combat(game.player, packBeingAttacked, 0);
+				packChosen = false;
 				UpdateGame();
 			}
 
@@ -166,7 +219,8 @@ namespace STVRogue
 			}
 			else
 			{
-				game.player.Attack(game.player.location.packs[packBeingAttacked].members[1]);
+				game.player.location.Combat(game.player,packBeingAttacked, 1);
+				packChosen = false;
 				UpdateGame();
 			}
 
@@ -189,7 +243,7 @@ namespace STVRogue
 			}
 			else
 			{
-				game.player.Attack(game.player.location.packs[packBeingAttacked].members[2]);
+				game.player.location.Combat(game.player, packBeingAttacked, 2);
 				packChosen = false;
 				UpdateGame();
 			}
@@ -211,7 +265,8 @@ namespace STVRogue
 			}
 			else
 			{
-				game.player.Attack(game.player.location.packs[packBeingAttacked].members[3]);
+				game.player.location.Combat(game.player, packBeingAttacked, 3);
+				packChosen = false;
 				UpdateGame();
 			}
 		}
@@ -235,6 +290,11 @@ namespace STVRogue
 			}
 			UpdateGame();
 		}
+		private void button7_Click(object sender, EventArgs e)
+		{
+			game.player.Flee();
+
+		}
 		private void label1_Click(object sender, EventArgs e)
 		{
 
@@ -255,9 +315,6 @@ namespace STVRogue
 
 		}
 
-		private void button7_Click(object sender, EventArgs e)
-		{
-
-		}
+		
 	}
 }

@@ -30,9 +30,9 @@ namespace STVRogue.GameLogic
 
 			
 			amountOfMonstersPerLevel = new int[difficultyLevel + 1];
-			
-			packs = dungeon.addpacks(numberOfMonsters);
-			items = dungeon.additems(dungeon.calculateTotalMonsterHP(), dungeon.bridges[dungeon.bridges.Length - 1], player.HPbase);
+
+			packs = dungeon.packs;
+			items = dungeon.items;
             turn = 0;
 		}
 		
@@ -41,7 +41,7 @@ namespace STVRogue.GameLogic
                 Zone z = new Zone(dungeon);
 				RAlert alert = new RAlert(z);
 				alert.AlertMonsters();
-				player.location.Combat(player);
+	//			player.location.Combat(player);
 				alert.DeAlertMonsters();
 			}
 			else {

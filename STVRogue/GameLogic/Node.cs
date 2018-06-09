@@ -28,12 +28,19 @@ namespace STVRogue.GameLogic {
             nd.neighbors.Remove(this);
 		}
 
-		public void Combat(Player player)
+		public void Combat(Player player, int pack, int monster)
         {
-            Command combatCommand = new Command(player, Console.ReadKey().Key);
-            combatCommand.Execute();
-            SelectMonsterAndAttack(player);
-            MonsterTurn(player);
+      //      Command combatCommand = new Command(player, Console.ReadKey().Key);
+       //     combatCommand.Execute();
+			player.Attack(packs[pack].members[monster]);
+			if (!packs[pack].members.Any())
+			{
+				packs.Remove(packs[pack]);
+			}
+			else
+			{
+				MonsterTurn(player);
+			}
         }
         private void SelectMonsterAndAttack(Player player)
         {
