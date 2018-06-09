@@ -23,15 +23,6 @@ namespace STVRogue
 
 
 			game = new Game(5, 1, 20);
-			foreach (Node node in game.dungeon.nodeList)
-			{
-				foreach (Pack pack in node.packs)
-				{
-					Console.WriteLine("node" + pack.location.id);
-					Console.WriteLine(pack.members.Count);
-					Console.WriteLine("pakcs" + game.packs.Count());
-				}
-			}
 
 			UpdateGame();
 		}
@@ -54,14 +45,12 @@ namespace STVRogue
 			{
 				if (game.player.location.packs.Any())
 				{
-					//		inCombat = true;
 					CombatUI();
 					inCombat = true;
-					//	Zone z = new Zone(game.dungeon);
-					//	RAlert alert = new RAlert(z);
-					//	alert.AlertMonsters();
-					//	game.player.location.Combat(game.player);
-					//	alert.DeAlertMonsters();
+						Zone z = new Zone(game.dungeon);
+						RAlert alert = new RAlert(z);
+						alert.AlertMonsters();
+						alert.DeAlertMonsters();
 				}
 				else
 				{
