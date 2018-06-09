@@ -68,7 +68,8 @@ namespace STVRogue.GameLogic
             if (n.items.Any())
                 foreach (Item i in n.items)
                     this.PickUp(i);
-            this.location = n;
+			n.items.Clear();
+			this.location = n;
         }
 
         public void PickUp(Item item) => bag.Add(item);

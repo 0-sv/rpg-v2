@@ -122,7 +122,7 @@ namespace STVRogue.GameLogic
         public List<Pack> addpacks(int numberOfMonsters)
 		{ // add packs to the dungeon
 			int maxMonstersOnThisLevel, monstersOnThisLevel = 0, monstersInDungeon = 0, monstersOnNode = 0;
-			int pack_id = -1, count = 0, min, numbers;
+			int pack_id = 0, count = 0, min, numbers;
 			List<int> nodesOnThisLevelInRandomOrder;
 			List<Pack> packs = new List<Pack>();
 			for (int i = 0; i < bridges.Length - 1; i++)
@@ -144,8 +144,14 @@ namespace STVRogue.GameLogic
 				// add monsters to this level while the limit hasn't been reached yet
 				while (monstersOnThisLevel < maxMonstersOnThisLevel)
 				{
-
-					monstersOnNode = Math.Min(maxMonstersOnThisLevel - monstersOnThisLevel, (multiplier * (i + 1)));
+					if (i == bridges.Length - 2)
+					{
+						monstersOnNode = Math.Min(maxMonstersOnThisLevel - monstersOnThisLevel, (multiplier * (i + 1)));
+					}
+					else
+					{
+						monstersOnNode = Math.Min(maxMonstersOnThisLevel - monstersOnThisLevel, rnd.Next(1, (multiplier * (i + 1))));
+					}
 
 					monstersOnThisLevel += monstersOnNode;
 					// create a new pack and update its location
@@ -153,14 +159,15 @@ namespace STVRogue.GameLogic
 					pack.location = nodeList[nodesOnThisLevelInRandomOrder[count]];
 					nodeList[nodesOnThisLevelInRandomOrder[count++]].packs.Add(pack);
 					packs.Add(pack);
-					if (count > nodesOnThisLevelInRandomOrder.Count - 1)
-					{ // throw exception if amount of monsters and nodeCapacityMultiplier are out of proportion
-						throw new GameCreationException("Amount of monsters and nodeCapacityMultiplier are not compatible");
-					}
+				
 				}
 				amountOfMonsters[i] = monstersOnThisLevel;
 
 				monstersInDungeon += monstersOnThisLevel;
+			}
+			if (numberOfMonsters != monstersInDungeon)
+			{ // throw exception if amount of monsters and nodeCapacityMultiplier are out of proportion
+			  		throw new GameCreationException("Amount of monsters and nodeCapacityMultiplier are not compatible");
 			}
 			return packs;
 		}
@@ -187,10 +194,9 @@ namespace STVRogue.GameLogic
 			int item_id = 0;
 			int count = 0;
 			List<int> allNodesInRandomOrder = Enumerable.Range(1, nodeMax - 1).OrderBy(x => rnd.Next()).ToList();
-			Console.WriteLine(allNodesInRandomOrder.Count());
 			while ((itemAndPlayerHP + 11) < HPlimit && count < allNodesInRandomOrder.Count)
 			{ // add healingpotions until the limit is reached
-				if (rnd.Next(1, 10) == 1)
+				if (rnd.Next(1, 8) == 1)
 				{
 					HealingPotion item = new HealingPotion(item_id++.ToString());
 					item.location = nodeList[allNodesInRandomOrder[count]];
@@ -203,7 +209,7 @@ namespace STVRogue.GameLogic
 			count = 0;
 			while (count < allNodesInRandomOrder.Count - 1)
 			{ // for now we decided every node has a 1 in 20 chance to contain a Crystal
-				if (rnd.Next(1, 13) == 1)
+				if (rnd.Next(1, 10) == 1)
 				{
 					Crystal item = new Crystal(item_id++.ToString());
 					item.location = nodeList[allNodesInRandomOrder[count]];

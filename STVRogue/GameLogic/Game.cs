@@ -35,31 +35,7 @@ namespace STVRogue.GameLogic
 			items = dungeon.items;
             turn = 0;
 		}
-		
-		public void Update() {
-			if (player.location.packs.Any()) {
-                Zone z = new Zone(dungeon);
-				RAlert alert = new RAlert(z);
-				alert.AlertMonsters();
-	//			player.location.Combat(player);
-				alert.DeAlertMonsters();
-			}
-			else {
-			//	UpdateUI();
-			//	Command normalCommand = new Command(player, Console.ReadKey().Key);
-			//	normalCommand.Execute();
-			}
-            turn++;
-		}
-		/*
-		public void UpdateUI()
-		{
-			for(int i = 0;i<player.location.neighbors.Count;i++)
-			{
-				form.button1.Text = "Go to Node " + dungeon.nodeList[i].id;
-			}
-		}
-		*/
+		// Update() en turn++ verplaatst naar Form1.cs
 	}
 
 

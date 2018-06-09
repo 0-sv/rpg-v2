@@ -20,10 +20,7 @@ namespace STVRogue
 		public Form1()
 		{
 			InitializeComponent();
-
-
 			game = new Game(5, 1, 20);
-
 			UpdateGame();
 		}
 
@@ -41,6 +38,17 @@ namespace STVRogue
 				label10.Text = "You died";
 
 			}
+			else if(game.player.location == game.dungeon.exitNode && !game.player.location.packs.Any())
+			{
+				button1.Hide();
+				button2.Hide();
+				button5.Hide();
+				button6.Hide();
+				button7.Hide();
+				HideButtons();
+				label8.Text = "Player HP: " + game.player.HP + "/" + game.player.HPbase;
+				label10.Text = "You win";
+			}
 			else
 			{
 				if (game.player.location.packs.Any())
@@ -56,6 +64,7 @@ namespace STVRogue
 				{
 					UpdateUI(game.player);
 				}
+				game.turn++;
 
 			}
 		}
