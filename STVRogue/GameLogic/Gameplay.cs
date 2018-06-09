@@ -10,6 +10,10 @@ namespace STVRogue {
         private FileStream fs;
         private GameState gs;
 
+        public Gameplay(string file) {
+
+        }
+
         public Gameplay(GameState gs) {
             dt = DateTime.Now;
             this.gs = gs;
@@ -35,7 +39,8 @@ namespace STVRogue {
         public void ReplayTurn() {
         }
 
-        public void GetState() {
+        public GameState GetState() {
+            return gs; 
         }
 
         public void Replay(Specification s) {
