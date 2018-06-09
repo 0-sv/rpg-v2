@@ -17,7 +17,6 @@ namespace STVRogue.Gamelogic {
 
         private List<Node> IsolateZone () {
             List<Node> result = new List<Node>();
-            int n = 0;
             for (int index = 0; index <= nodes.Count; index++) {
                 if (ReferenceEquals(nodes[index], new Bridge())) {
                     if (d.Level(nodes[index]) == d.Level(d.player.location)) {

@@ -17,6 +17,7 @@ namespace STVRogue.GameLogic
 		public Dungeon dungeon;
 		public int[] amountOfMonstersPerLevel;
 		Random randomnum = new Random();
+        public int turn;
 		
 		public Game(int difficultyLevel, int nodeCapacityMultiplier, int numberOfMonsters)
 		{
@@ -32,6 +33,7 @@ namespace STVRogue.GameLogic
 			
 			packs = dungeon.addpacks(numberOfMonsters);
 			items = dungeon.additems(dungeon.calculateTotalMonsterHP(), dungeon.bridges[dungeon.bridges.Length - 1], player.HPbase);
+            turn = 0;
 		}
 		
 		public void Update() {
@@ -47,6 +49,7 @@ namespace STVRogue.GameLogic
 			//	Command normalCommand = new Command(player, Console.ReadKey().Key);
 			//	normalCommand.Execute();
 			}
+            turn++;
 		}
 		/*
 		public void UpdateUI()

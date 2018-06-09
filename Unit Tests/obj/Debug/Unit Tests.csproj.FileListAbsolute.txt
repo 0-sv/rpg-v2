@@ -1,0 +1,26 @@
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\obj\Debug\Unit Tests.csprojAssemblyReference.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\obj\Debug\Unit Tests.csproj.CoreCompileInputs.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\Unit Tests.dll.config
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\Unit Tests.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\Unit Tests.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FsCheck.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FsCheck.Xunit.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FSharp.Core.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\STVRogue.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.abstractions.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.assert.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.core.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\STVRogue.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FsCheck.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FsCheck.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FsCheck.Xunit.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FsCheck.Xunit.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\FSharp.Core.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.abstractions.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.assert.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.core.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\bin\Debug\xunit.execution.desktop.xml
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\obj\Debug\Unit Tests.csproj.CopyComplete
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\obj\Debug\Unit Tests.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\Unit Tests\obj\Debug\Unit Tests.pdb
