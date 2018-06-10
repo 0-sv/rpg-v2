@@ -3,10 +3,11 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Text;
 
 namespace STVRogue {
     public class Gameplay {
-        private DateTime dt;
+        private string dt;
         private FileStream fs;
         private GameState gs;
 
@@ -15,21 +16,17 @@ namespace STVRogue {
         }
 
         public Gameplay(GameState gs) {
-            dt = DateTime.Now;
+            dt = DateTime.Now.ToString().Replace(':', '-');
             this.gs = gs;
         }
 
         public void CreateFile() {
-            fs = new FileStream(Directory.GetCurrentDirectory() + "save_game " + dt.ToShortDateString() + ".txt",
-                FileMode.CreateNew,
-                FileAccess.Read,
-                FileShare.Read);
-        }
-
-        public void SaveGameState () {
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine(gs.ToString());
-            sw.Close();
+            string path = @"C:\temp\";
+            using (FileStream fs = File.Create(path + "save_game " + dt + ".txt")) {
+                
+                byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
+                fs.Write(info, 0, info.Length);
+            }
         }
 
         // Reset recorded game play back to turn 0
@@ -54,44 +51,51 @@ namespace STVRogue {
         private string turn;
         private string packLocations;
         // TO DO: how to represent dungeon? Maybe after UI implementation it is more clear.
-    
         private Game g;
+
+        public GameState(string save) {
+
+        }    
+
         public GameState(Game g) {
             this.g = g;
-            this.playerName = g.player.id;
+            this.playerName = "Player name: " + g.player.id;
             this.playerItems = BagToString(g.player.bag);
-            this.playerLocation = NodeToString(g.player.location);
-            this.turn = g.turn.ToString();
+            this.playerLocation = "Player Location: " + NodeToString(g.player.location);
+            this.turn = "Turn: " + g.turn.ToString();
             this.packLocations = PacksToString(g.packs);
         }
 
         public override string ToString() {
-            return playerName + playerItems + playerLocation + turn + packLocations;
+            return playerName + "\n" + "------------------" + "\n"
+                + playerItems + "\n" + "------------------" + "\n"
+                + playerLocation + "\n" + "------------------" + "\n"
+                + turn + "\n" + "------------------" + "\n"
+                + packLocations;
         }
 
         private string BagToString(List<Item> items) {
             string result = "Bag content: ";
-            for(int index = 0; index < items.Count; ++index) {
-                result += index.ToString() + ": " + (items[index].IsCrystal ? "crystal" : "hp_potion")
+            for(int i = 0; i < items.Count; ++i) {
+                result += i.ToString() + ": " + (items[i].IsCrystal ? "crystal" : "hp_potion")
                 + " , used: " 
-                + (items[index].IsUsed() ? "yes" : "no")
+                + (items[i].IsUsed() ? "yes" : "no")
                 + "\n";
             }
             return result;
         }
 
         private string PacksToString(List<Pack> packs) {
-            string result = "Monster locations: " + "\n";
-            for (int index = 0; index < packs.Count; ++index) {
-                result += "Location: " + index.ToString() + ": " + (packs[index].location.id)
-                + ": #monsters: "
-                + (packs[index].members.Count)
-                + ", monster: ";
-                for (int j = 0; j < packs[index].members.Count; ++j) {
-                    Monster m = packs[index].members[j];
-                    result += j.ToString()
-                        + "with HP: " + m.GetHP().ToString() 
-                        + " and attackrating: " + m.AttackRating;
+            string result = "Monster locations: " + "\n" + "------------------" + "\n";
+            for (int i = 0; i < packs.Count; ++i) {
+                result += "Location " + (packs[i].location.id) + ": " + "\n" + "------------------" + "\n"
+                + " #monsters: "
+                + (packs[i].members.Count) + "\n";
+                for (int j = 0; j < packs[i].members.Count; ++j) {
+                    Monster m = packs[i].members[j];
+                    result += "Monster: " + j.ToString()
+                        + " with HP: " + m.GetHP().ToString()
+                        + " and attackrating: " + m.AttackRating + "\n";
                 }
                 result += "\n";
             }

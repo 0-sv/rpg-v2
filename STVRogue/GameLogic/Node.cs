@@ -8,13 +8,19 @@ namespace STVRogue.GameLogic {
     public class Node
 	{
 		public String id;
-		public List<Node> neighbors = new List<Node>();
-		public List<Pack> packs = new List<Pack>();
-		public List<Item> items = new List<Item>();
-        private bool IsNotPossibleToFlee = false;
+		public List<Node> neighbors;
+		public List<Pack> packs; 
+		public List<Item> items;
+        public bool IsNotPossibleToFlee;
 
         public Node() { }
-		public Node(String id) { this.id = id; }
+		public Node(String id) { 
+            this.id = id; 
+            neighbors = new List<Node>();
+            packs = new List<Pack>();
+            items = new List<Item>();
+            IsNotPossibleToFlee = false;
+        }
 
 		public void Connect(Node nd)
 		{

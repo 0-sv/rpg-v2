@@ -19,3 +19,4 @@ C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csproj.CoreCompileInputs.cache
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojAssemblyReference.cache

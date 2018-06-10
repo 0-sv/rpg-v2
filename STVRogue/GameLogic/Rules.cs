@@ -51,7 +51,6 @@ namespace STVRogue.GameLogic {
         public override void AlertMonsters () {
             base.AlertMonsters();
         }
-            
 
         public override void DeAlertMonsters () {
             base.DeAlertMonsters();
