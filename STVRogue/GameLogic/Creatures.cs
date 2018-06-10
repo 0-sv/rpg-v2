@@ -33,8 +33,9 @@ namespace STVRogue.GameLogic
         private Pack pack;
 
         /* Create a monster with a random HP */
-        public Monster(String id)
+        public Monster(String id, Node n)
         {
+            location = n;
             this.id = id; name = "Orc";
             this.HPbase = 1 + RandomGenerator.rnd.Next(6);
             this.HP = HPbase;

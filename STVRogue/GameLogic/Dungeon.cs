@@ -155,8 +155,7 @@ namespace STVRogue.GameLogic
 
 					monstersOnThisLevel += monstersOnNode;
 					// create a new pack and update its location
-					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode);
-					pack.location = nodeList[nodesOnThisLevelInRandomOrder[count]];
+					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode, nodeList[nodesOnThisLevelInRandomOrder[count]]);
 					nodeList[nodesOnThisLevelInRandomOrder[count++]].packs.Add(pack);
 					packs.Add(pack);
 				
