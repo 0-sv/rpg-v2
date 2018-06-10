@@ -10,6 +10,7 @@ namespace STVRogue {
         private string dt;
         private FileStream fs;
         private GameState gs;
+        private string path = @"C:\temp\";
 
         public Gameplay(string file) {
 
@@ -21,12 +22,22 @@ namespace STVRogue {
         }
 
         public void CreateFile() {
-            string path = @"C:\temp\";
             using (FileStream fs = File.Create(path + "save_game " + dt + ".txt")) {
-                
                 byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
                 fs.Write(info, 0, info.Length);
             }
+        }
+
+        public string SaveFile() {
+            string file = "";
+            using (FileStream fs = File.OpenRead(path)) {
+                byte[] b = new byte[1024];
+                UTF8Encoding temp = new UTF8Encoding(true);
+                while (fs.Read(b, 0, b.Length) > 0) {
+                    file += temp.GetString(b);
+                }
+            }
+            return file;
         }
 
         // Reset recorded game play back to turn 0
@@ -50,32 +61,50 @@ namespace STVRogue {
         private string playerLocation; 
         private string turn;
         private string packLocations;
-        // TO DO: how to represent dungeon? Maybe after UI implementation it is more clear.
+        // Dungeon representation to do: 
+        // - restore original nodelist:
+        //      - #nodes and their connectivity
         private Game g;
+        private string file;
+        private string difficultyLevel;
+        private string nodeCapacityMultiplier;
+        private string numberOfMonsters;
 
-        public GameState(string save) {
 
+        public GameState(string file) {
+            this.file = file;
         }    
 
         public GameState(Game g) {
             this.g = g;
-            this.playerName = "Player name: " + g.player.id;
+            this.playerName = g.player.id;
             this.playerItems = BagToString(g.player.bag);
-            this.playerLocation = "Player Location: " + NodeToString(g.player.location);
-            this.turn = "Turn: " + g.turn.ToString();
+            this.playerLocation =  NodeToString(g.player.location);
+            this.turn =  g.turn.ToString();
             this.packLocations = PacksToString(g.packs);
+            this.difficultyLevel = g.difficultyLevel.ToString();
+            this.nodeCapacityMultiplier = g.nodeCapacityMultiplier.ToString();
+            this.numberOfMonsters = g.numberOfMonsters.ToString();
+        }
+
+        public Game ToGame() {
+            return new Game(1, 1, 1);
         }
 
         public override string ToString() {
-            return playerName + "\n" + "------------------" + "\n"
-                + playerItems + "\n" + "------------------" + "\n"
-                + playerLocation + "\n" + "------------------" + "\n"
-                + turn + "\n" + "------------------" + "\n"
-                + packLocations;
+            return "Player name: " + playerName + "\n" 
+                + "Bag content: " + playerItems + "\n" 
+                + "Player Location: " + playerLocation + "\n" 
+                + "Turn: " + turn + "\n" 
+                + "Pack locations: " + packLocations
+                + "Difficulty level :" + difficultyLevel
+                + "Node capacity multiplier: " + nodeCapacityMultiplier
+                + "Number of monsters: " + numberOfMonsters;
+
         }
 
         private string BagToString(List<Item> items) {
-            string result = "Bag content: ";
+            string result = "";
             for(int i = 0; i < items.Count; ++i) {
                 result += i.ToString() + ": " + (items[i].IsCrystal ? "crystal" : "hp_potion")
                 + " , used: " 
@@ -86,7 +115,7 @@ namespace STVRogue {
         }
 
         private string PacksToString(List<Pack> packs) {
-            string result = "Monster locations: " + "\n" + "------------------" + "\n";
+            string result = "";
             for (int i = 0; i < packs.Count; ++i) {
                 result += "Location " + (packs[i].location.id) + ": " + "\n" + "------------------" + "\n"
                 + " #monsters: "

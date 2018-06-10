@@ -18,16 +18,20 @@ namespace STVRogue.GameLogic
 		public int[] amountOfMonstersPerLevel;
 		Random randomnum = new Random();
         public int turn;
+        public int difficultyLevel;
+        public int nodeCapacityMultiplier;
+        public int numberOfMonsters;
 		
 		public Game(int difficultyLevel, int nodeCapacityMultiplier, int numberOfMonsters)
 		{
 			Logger.log("Creating a game of difficulty level " + difficultyLevel + ", node capacity multiplier "
 					   + nodeCapacityMultiplier + ", and " + numberOfMonsters + " monsters.");
-			
+			this.difficultyLevel = difficultyLevel;
+            this.nodeCapacityMultiplier = nodeCapacityMultiplier;
+            this.numberOfMonsters = numberOfMonsters;
 			player = new Player("Bram");
 			dungeon = new Dungeon(difficultyLevel, nodeCapacityMultiplier, numberOfMonsters, player);
 			player.Move(dungeon.startNode);
-
 			
 			amountOfMonstersPerLevel = new int[difficultyLevel + 1];
 
