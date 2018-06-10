@@ -36,11 +36,17 @@ namespace STVRogue.GameLogic {
     }
 
     public class RZone : BaseRule {
-        public RZone(Zone z) : base(z) {}
+        public RZone(Zone z) : base(z) {
+            this.z = z;
+        }
+
+
     }
 
     public class RNode : BaseRule {
-        public RNode(Zone z) : base(z) {}
+        public RNode(Zone z, Pack p) : base(z) {
+            this.z = z;
+        }
     }
 
     public class RAlert : BaseRule {
