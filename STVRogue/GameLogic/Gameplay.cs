@@ -56,6 +56,7 @@ namespace STVRogue {
     }
 
     public class GameState {
+        /* Variables that make up a GameState */
         private string playerName;
         private string playerItems;
         private string playerLocation; 
@@ -66,9 +67,19 @@ namespace STVRogue {
         //      - #nodes and their connectivity
         private Game g;
         private string file;
-        private string difficultyLevel;
-        private string nodeCapacityMultiplier;
-        private string numberOfMonsters;
+        private int difficultyLevel;
+        private int nodeCapacityMultiplier;
+        private int numberOfMonsters;
+
+        /* Variables that make up the prefix, e.g.: "Difficulty level: " */
+        private const string playerNamePrefix = "Player name: ";
+        private const string bagPrefix = "Bag content: ";
+        private const string playerLocationPrefix = "Player location: ";
+        private const string turnPrefix = "Turn: ";
+        private const string packPrefix = "Pack locations: ";
+        private const string difficultyLevelPrefix = "Difficulty level: ";
+        private const string nodeCapacityMultiplierPrefix = "Node capacity multiplier: ";
+        private const string numberOfMonstersPrefix = "Number of monsters: ";
 
 
         public GameState(string file) {
@@ -82,25 +93,48 @@ namespace STVRogue {
             this.playerLocation =  NodeToString(g.player.location);
             this.turn =  g.turn.ToString();
             this.packLocations = PacksToString(g.packs);
-            this.difficultyLevel = g.difficultyLevel.ToString();
-            this.nodeCapacityMultiplier = g.nodeCapacityMultiplier.ToString();
-            this.numberOfMonsters = g.numberOfMonsters.ToString();
+            this.difficultyLevel = g.difficultyLevel;
+            this.nodeCapacityMultiplier = g.nodeCapacityMultiplier;
+            this.numberOfMonsters = g.numberOfMonsters;
         }
 
-        public Game ToGame() {
-            return new Game(1, 1, 1);
+        public void ToGame() {
+            Game result = new Game(Int32.Parse(GetSingleValueFromFile(difficultyLevelPrefix)),
+                Int32.Parse(GetSingleValueFromFile(nodeCapacityMultiplierPrefix)),
+                Int32.Parse(GetSingleValueFromFile(numberOfMonstersPrefix)));
+            result.player.id = GetSingleValueFromFile(playerNamePrefix);
+            result.player.bag = ExtractBag(GetSingleValueFromFile(bagPrefix));
+
+            result.turn = Int32.Parse(GetSingleValueFromFile(turnPrefix));
+            result.packs = ExtractPacks(GetSingleValueFromFile(packPrefix));
+            
+            g = result;
         }
+
+        private List<Pack> ExtractPacks(string v) {
+            throw new NotImplementedException();
+        }
+
+        private List<Item> ExtractBag(string v) {
+            throw new NotImplementedException();
+        }
+
+        private string GetSingleValueFromFile(string keyword) {
+            int whitespace1 = file.IndexOf(keyword + keyword.Length);
+            int whitespace2 = file.IndexOf("!", whitespace1 + 1);
+            return file.Substring(whitespace1, whitespace2);
+        }
+
 
         public override string ToString() {
-            return "Player name: " + playerName + "\n" 
-                + "Bag content: " + playerItems + "\n" 
-                + "Player Location: " + playerLocation + "\n" 
-                + "Turn: " + turn + "\n" 
-                + "Pack locations: " + packLocations
-                + "Difficulty level :" + difficultyLevel
-                + "Node capacity multiplier: " + nodeCapacityMultiplier
-                + "Number of monsters: " + numberOfMonsters;
-
+            return playerNamePrefix + playerName + "!"+ "\n" 
+                + bagPrefix + playerItems + "!" + "\n" 
+                + playerLocationPrefix + playerLocation + "!" + "\n" 
+                + turnPrefix + turn + "!" + "\n" 
+                + packPrefix + packLocations + "!" + "\n"
+                + difficultyLevelPrefix + difficultyLevel.ToString() + "!" + "\n"
+                + nodeCapacityMultiplierPrefix + nodeCapacityMultiplier.ToString() + "!" + "\n"
+                + numberOfMonstersPrefix + numberOfMonsters.ToString() + "!" + "\n";
         }
 
         private string BagToString(List<Item> items) {
