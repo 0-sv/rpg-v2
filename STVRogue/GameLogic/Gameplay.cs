@@ -13,7 +13,7 @@ namespace STVRogue {
         private string path = @"C:\temp\";
 
         public Gameplay(string file) {
-
+            this.gs = new GameState(file);
         }
 
         public Gameplay(GameState gs) {
@@ -22,13 +22,13 @@ namespace STVRogue {
         }
 
         public void CreateFile() {
-            using (FileStream fs = File.Create(path + "save_game " + dt + ".txt")) {
+            using (FileStream fs = File.Create(path + "save_game " + dt + gs.GetGame().turn.ToString() + ".txt")) {
                 byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
                 fs.Write(info, 0, info.Length);
             }
         }
 
-        public string SaveFile() {
+        public string OpenFile() {
             string file = "";
             using (FileStream fs = File.OpenRead(path)) {
                 byte[] b = new byte[1024];
@@ -40,11 +40,12 @@ namespace STVRogue {
             return file;
         }
 
-        // Reset recorded game play back to turn 0
         public void Reset () {
+            // To do: save all games to a single file with separate turns. Then you get all properties from that turn.
         }
 
         public void ReplayTurn() {
+            // To do: same as Reset(), but with subtracting just one turn. 
         }
 
         public GameState GetState() {
@@ -96,6 +97,10 @@ namespace STVRogue {
             this.difficultyLevel = g.difficultyLevel;
             this.nodeCapacityMultiplier = g.nodeCapacityMultiplier;
             this.numberOfMonsters = g.numberOfMonsters;
+        }
+
+        public Game GetGame() {
+            return g;
         }
 
         public void ToGame() {
