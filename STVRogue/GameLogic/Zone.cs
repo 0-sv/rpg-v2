@@ -12,14 +12,14 @@ namespace STVRogue.Gamelogic {
         public Zone (Dungeon d) {
             this.d = d;
             this.nodes = d.nodeList;
-            nodes = IsolateZone(); 
+            nodes = IsolateZone(d.player); 
         }
 
-        private List<Node> IsolateZone () {
+        private List<Node> IsolateZone (Creature c) {
             List<Node> result = new List<Node>();
             for (int index = 0; index < nodes.Count; index++) {
                 if (ReferenceEquals(nodes[index], new Bridge())) {
-                    if (d.Level(nodes[index]) == d.Level(d.player.location)) {
+                    if (d.Level(nodes[index]) == d.Level(c.location)) {
                         result.Add(nodes[index]); 
                     } 
                 }
