@@ -20,6 +20,7 @@ namespace STVRogue {
             this.gs = gs;
         }
 
+        /* Usage: use this method only once, else the file gets overwritten */
         public void CreateSaveGameFile() {
             using (FileStream fs = File.Create(path)) {
                 byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
@@ -28,6 +29,7 @@ namespace STVRogue {
             offset = gs.ToString().Length;
         }
 
+        /* Usage: use this method every turn so we have turns 1, 2, 3, 4 .. N */
         public void SaveTurnToSaveGameFile() {
             using (FileStream fs = File.OpenWrite(path)) {
                 byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
@@ -75,7 +77,18 @@ namespace STVRogue {
             return gs; 
         }
 
-        public void Replay(Specification s) {
+        /* Usage: first play a whole game, e.g. until the player dies. Then we have a range of turns: 1, 2, 3, 4 .. M to which you can test your specification */
+        public bool Replay(Specification s) {
+            Reset();
+            for (int i = 0; i < GetState().GetGame().turn; ++i) {
+                bool ok = s.test(GetState());
+                if (ok) {
+                    ReplayTurn(GetState().GetGame().turn);
+                }
+                else
+                    return false;
+            }
+            return true;
         }
     }
 

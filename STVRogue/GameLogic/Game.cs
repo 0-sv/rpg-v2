@@ -40,6 +40,7 @@ namespace STVRogue.GameLogic
             turn = 0;
 		}
 		// Update() en turn++ verplaatst naar Form1.cs
+
 	}
 
 
