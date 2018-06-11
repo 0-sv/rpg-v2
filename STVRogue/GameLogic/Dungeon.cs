@@ -17,7 +17,7 @@ namespace STVRogue.GameLogic
 		public int difficultyLevel;
         public int[] amountOfMonsters;
 		public int node;
-		Random rnd = new Random();
+		public Random rnd = new Random();
         public int multiplier; 
         public Player player;
         public List<Pack> packs;
@@ -155,8 +155,7 @@ namespace STVRogue.GameLogic
 
 					monstersOnThisLevel += monstersOnNode;
 					// create a new pack and update its location
-					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode);
-					pack.location = nodeList[nodesOnThisLevelInRandomOrder[count]];
+					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode, nodeList[nodesOnThisLevelInRandomOrder[count]]);
 					nodeList[nodesOnThisLevelInRandomOrder[count++]].packs.Add(pack);
 					packs.Add(pack);
 				

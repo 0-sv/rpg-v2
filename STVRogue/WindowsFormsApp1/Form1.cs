@@ -55,7 +55,7 @@ namespace STVRogue
 				{
 					CombatUI();
 					inCombat = true;
-						Zone z = new Zone(game.dungeon);
+						Zone z = new Zone(game.dungeon, game.player);
 						RAlert alert = new RAlert(z);
 						alert.AlertMonsters();
 						alert.DeAlertMonsters();
@@ -202,6 +202,28 @@ namespace STVRogue
 			label10.Text = "Player moved to Node " + x;
 			UpdateGame();
 		}
+
+        private void PackMove()
+        {
+            foreach (Pack p in game.packs)
+            {
+                if(p.alerted)
+                {
+                    if (game.dungeon.rnd.Next(2) == 0)
+                        p.MoveTowards(game.player.location);
+                }
+                else
+                {
+                    int nbs = p.location.neighbors.Count;
+                    int i = game.dungeon.rnd.Next(nbs + 1);
+                    if (i == nbs)
+                        continue;
+                    else
+                        p.Move(p.location.neighbors[i]);
+                }
+            }
+        }
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 
