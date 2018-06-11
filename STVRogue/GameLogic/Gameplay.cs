@@ -104,6 +104,7 @@ namespace STVRogue {
         private int numberOfMonsters;
 
         /* Variables that make up the prefix, e.g.: "Difficulty level: " */
+        private const string START = "START";
         private const string playerNamePrefix = "Player name: ";
         private const string bagPrefix = "Bag content: ";
         private const string playerLocationPrefix = "Player location: ";
@@ -112,7 +113,7 @@ namespace STVRogue {
         private const string difficultyLevelPrefix = "Difficulty level: ";
         private const string nodeCapacityMultiplierPrefix = "Node capacity multiplier: ";
         private const string numberOfMonstersPrefix = "Number of monsters: ";
-
+        private const string END = "END";
 
         public GameState(string file) {
             this.file = file;
@@ -162,14 +163,16 @@ namespace STVRogue {
         }
 
         public override string ToString() {
-            return playerNamePrefix + playerName + "!"+ "\n" 
+            return START + "\n"
+                + playerNamePrefix + playerName + "!"+ "\n" 
                 + bagPrefix + playerItems + "!" + "\n" 
                 + playerLocationPrefix + playerLocation + "!" + "\n" 
                 + turnPrefix + turn + "!" + "\n" 
                 + packPrefix + packLocations + "!" + "\n"
                 + difficultyLevelPrefix + difficultyLevel.ToString() + "!" + "\n"
                 + nodeCapacityMultiplierPrefix + nodeCapacityMultiplier.ToString() + "!" + "\n"
-                + numberOfMonstersPrefix + numberOfMonsters.ToString() + "!" + "\n";
+                + numberOfMonstersPrefix + numberOfMonsters.ToString() + "!" + "\n"
+                + END + "\n";
         }
 
         private string BagToString(List<Item> items) {
@@ -184,11 +187,11 @@ namespace STVRogue {
         }
 
         private string PacksToString(List<Pack> packs) {
-            string result = "";
+            string result = "\n";
             for (int i = 0; i < packs.Count; ++i) {
-                result += "Location " + (packs[i].location.id) + ": " + "\n" + "------------------" + "\n"
+                result += "Location " + (packs[i].location.id) + ": " + "\n"
                 + " #monsters: "
-                + (packs[i].members.Count) + "\n";
+                + (packs[i].members.Count) + "\n" + "------------------" + "\n";
                 for (int j = 0; j < packs[i].members.Count; ++j) {
                     Monster m = packs[i].members[j];
                     result += "Monster: " + j.ToString()

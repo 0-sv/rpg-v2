@@ -17,7 +17,7 @@ namespace UnitTests
         [Fact]
         public void GamePlayCreatesSaveGame() {
             GameState gs = new GameState(g);
-            Gameplay gp = new Gameplay(gs);
+            GamePlay gp = new GamePlay(gs);
 
             g.player.bag.Add(hp);
             g.player.bag.Add(c);
@@ -25,7 +25,8 @@ namespace UnitTests
             Assert.Contains(hp, g.player.bag);
             Assert.Contains(c, g.player.bag);
 
-            gp.CreateFile();
+            gp.CreateSaveGameFile();
+            gp.SaveTurnToSaveGameFile();
         }
     }
 }
