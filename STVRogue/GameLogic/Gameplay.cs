@@ -2,30 +2,38 @@ using STVRogue.GameLogic;
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Text;
 
 namespace STVRogue {
-    public class Gameplay {
-        private string dt;
+    public class GamePlay {
+        private int offset; 
         private FileStream fs;
         private GameState gs;
-        private string path = @"C:\temp\";
+        private string path = @"C:\temp\save_game.txt";
 
-        public Gameplay(string file) {
+        public GamePlay(string file) {
             this.gs = new GameState(file);
+            this.offset = 0; 
         }
 
-        public Gameplay(GameState gs) {
-            dt = DateTime.Now.ToString().Replace(':', '-');
+        public GamePlay(GameState gs) {
             this.gs = gs;
         }
 
-        public void CreateFile() {
-            using (FileStream fs = File.Create(path + "save_game " + dt + gs.GetGame().turn.ToString() + ".txt")) {
+        public void CreateSaveGameFile() {
+            using (FileStream fs = File.Create(path)) {
                 byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
-                fs.Write(info, 0, info.Length);
+                fs.Write(info, offset, info.Length);
             }
+            offset = gs.ToString().Length;
+        }
+
+        public void SaveTurnToSaveGameFile() {
+            using (FileStream fs = File.OpenWrite(path)) {
+                byte[] info = new UTF8Encoding(true).GetBytes(gs.ToString());
+                fs.Write(info, offset, info.Length);
+            }
+            offset += gs.ToString().Length;
         }
 
         public string OpenFile() {
@@ -40,12 +48,35 @@ namespace STVRogue {
             return file;
         }
 
-        public void Reset () {
-            // To do: save all games to a single file with separate turns. Then you get all properties from that turn.
+        public Game Reset () {
+            string file = OpenFile();
+            file = GetTurnFromFile(file, 0);
+            GameState openGS = new GameState(file);
+            openGS.ToGame();
+            return openGS.GetGame();
         }
 
-        public void ReplayTurn() {
-            // To do: same as Reset(), but with subtracting just one turn. 
+        public Game ReplayTurn(int currentTurn) {
+            string file = OpenFile();
+            file = GetTurnFromFile(file, currentTurn - 1);
+            GameState openGS = new GameState(file);
+            openGS.ToGame();
+            return openGS.GetGame();
+        }
+        private string IsolateTurnFromFile() {
+            throw new NotImplementedException();
+        }
+
+        private string GetTurnFromFile(string file, int turn) {
+            for (int i = 0; i < turn; ++i) {
+                string keyword = "Turn: ";
+                int whitespace1 = file.IndexOf(keyword + keyword.Length);
+                int whitespace2 = file.IndexOf("!", whitespace1 + 1);
+                string substring = file.Substring(whitespace1, whitespace2);
+                if (Int32.Parse(substring) == turn)
+                    return IsolateTurnFromFile();
+            }
+            return "NOT FOUND";
         }
 
         public GameState GetState() {
@@ -129,7 +160,6 @@ namespace STVRogue {
             int whitespace2 = file.IndexOf("!", whitespace1 + 1);
             return file.Substring(whitespace1, whitespace2);
         }
-
 
         public override string ToString() {
             return playerNamePrefix + playerName + "!"+ "\n" 
