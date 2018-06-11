@@ -63,20 +63,12 @@ namespace STVRogue {
             openGS.ToGame();
             return openGS.GetGame();
         }
-        private string IsolateTurnFromFile() {
-            throw new NotImplementedException();
-        }
-
+       
         private string GetTurnFromFile(string file, int turn) {
-            for (int i = 0; i < turn; ++i) {
-                string keyword = "Turn: ";
-                int whitespace1 = file.IndexOf(keyword + keyword.Length);
-                int whitespace2 = file.IndexOf("!", whitespace1 + 1);
-                string substring = file.Substring(whitespace1, whitespace2);
-                if (Int32.Parse(substring) == turn)
-                    return IsolateTurnFromFile();
-            }
-            return "NOT FOUND";
+            string keyword = "START Turn: " + turn.ToString();
+            int begin = file.IndexOf(keyword + keyword.Length);
+            int end = file.IndexOf("END", begin + 1);
+            return file.Substring(begin, end);
         }
 
         public GameState GetState() {
@@ -163,11 +155,10 @@ namespace STVRogue {
         }
 
         public override string ToString() {
-            return START + "\n"
+            return START + " " + turnPrefix + turn + "! \n"
                 + playerNamePrefix + playerName + "!"+ "\n" 
                 + bagPrefix + playerItems + "!" + "\n" 
                 + playerLocationPrefix + playerLocation + "!" + "\n" 
-                + turnPrefix + turn + "!" + "\n" 
                 + packPrefix + packLocations + "!" + "\n"
                 + difficultyLevelPrefix + difficultyLevel.ToString() + "!" + "\n"
                 + nodeCapacityMultiplierPrefix + nodeCapacityMultiplier.ToString() + "!" + "\n"
