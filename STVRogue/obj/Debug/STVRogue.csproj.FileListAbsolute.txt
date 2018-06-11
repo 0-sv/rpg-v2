@@ -20,3 +20,8 @@ C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\STVRogue.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\STVRogue.pdb
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojResolveAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb

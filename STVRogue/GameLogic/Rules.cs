@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using STVRogue.Gamelogic;
-using STVRogue.GameLogic;
+using STVRogue.Utils;
 
 namespace STVRogue.GameLogic {
     public abstract class Rule {
@@ -10,6 +10,7 @@ namespace STVRogue.GameLogic {
 
     public class BaseRule : Rule {
         protected Zone z;
+        Predicates p = new Predicates();
         public BaseRule (Zone z) {
             this.z = z;
         }
@@ -40,12 +41,37 @@ namespace STVRogue.GameLogic {
             this.z = z;
         }
 
-
+        public bool validMove(Node dest)
+        {
+            if (z.nodes.Contains(dest))
+                return true;
+            else
+                return false;
+        }
     }
 
     public class RNode : BaseRule {
-        public RNode(Zone z, Pack p) : base(z) {
+        public RNode(Zone z) : base(z) {
             this.z = z;
+        }
+
+        public bool validMove(Pack pack, Node dest)
+        {
+            int count = 0;
+            foreach (Pack p in dest.packs)
+            {
+                count += p.members.Count;
+            }
+            int capacity = pack.dungeon.multiplier * (pack.dungeon.Level(dest) + 1);
+            // count monsters already in the node:
+            foreach (Pack Q in dest.packs)
+            {
+                capacity = capacity - Q.members.Count;
+            }
+
+            if (capacity < pack.members.Count)
+                return false;
+            return true;
         }
     }
 

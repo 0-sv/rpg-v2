@@ -9,10 +9,10 @@ namespace STVRogue.Gamelogic {
 
         public List<Node> nodes;
 
-        public Zone (Dungeon d) {
+        public Zone (Dungeon d, Creature c) {
             this.d = d;
             this.nodes = d.nodeList;
-            nodes = IsolateZone(d.player); 
+            nodes = IsolateZone(c); 
         }
 
         private List<Node> IsolateZone (Creature c) {

@@ -55,7 +55,7 @@ namespace STVRogue
 				{
 					CombatUI();
 					inCombat = true;
-						Zone z = new Zone(game.dungeon);
+						Zone z = new Zone(game.dungeon, game.player);
 						RAlert alert = new RAlert(z);
 						alert.AlertMonsters();
 						alert.DeAlertMonsters();
