@@ -17,7 +17,7 @@ namespace STVRogue.GameLogic
 		public int difficultyLevel;
         public int[] amountOfMonsters;
 		public int node;
-		Random rnd = new Random();
+		public Random rnd = new Random();
         public int multiplier; 
         public Player player;
         public List<Pack> packs;
