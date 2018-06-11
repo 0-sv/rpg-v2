@@ -16,12 +16,14 @@ namespace STVRogue.GameLogic
         public Dungeon dungeon;
         public bool alerted = false; 
 
-        public Pack(string id, int n)
+        public Pack(string id, int n, Node loc)
         {
             this.id = id;
+            location = loc;
             for (int i = 0; i < n; i++)
             {
                 Monster m = new Monster("" + id + "_" + i);
+                m.location = location;
                 members.Add(m);
                 startingHP += m.GetHP();
                 m.SetPack(this);
