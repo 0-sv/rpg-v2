@@ -14,6 +14,7 @@ namespace STVRogue
 	public partial class Form1 : Form
 	{
 		public Game game;
+		public GamePlay gameplay;
 		public bool inCombat = false;
 		public bool packChosen = false;
 		int packBeingAttacked = 0;
@@ -21,11 +22,14 @@ namespace STVRogue
 		{
 			InitializeComponent();
 			game = new Game(5, 1, 20);
+			gameplay = new GamePlay("e");
+			gameplay.CreateSaveGameFile();
 			UpdateGame();
 		}
 
 		public void UpdateGame()
 		{
+			gameplay.SaveTurnToSaveGameFile();
 			if (game.player.HP == 0)
 			{
 				button1.Hide();
@@ -51,6 +55,7 @@ namespace STVRogue
 			}
 			else
 			{
+				PackMove();
 				if (game.player.location.packs.Any())
 				{
 					CombatUI();

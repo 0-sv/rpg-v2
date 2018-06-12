@@ -9,7 +9,7 @@ namespace STVRogue {
         private int offset; 
         private FileStream fs;
         private GameState gs;
-        private string path = @"C:\temp\save_game.txt";
+        private string path = @"C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\saved_game.txt";
 
         public GamePlay(string file) {
             this.gs = new GameState(file);

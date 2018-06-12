@@ -1,0 +1,9 @@
+START Turn: ! 
+Player name: !
+Bag content: !
+Player location: !
+Pack locations: !
+Difficulty level: 0!
+Node capacity multiplier: 0!
+Number of monsters: 0!
+END
