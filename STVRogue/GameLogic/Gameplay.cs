@@ -99,14 +99,16 @@ namespace STVRogue {
         private string playerLocation; 
         private string turn;
         private string packLocations;
-        // Dungeon representation to do: 
-        private List<Node> nodes;
-
-        private Game g;
-        private string file;
         private int difficultyLevel;
         private int nodeCapacityMultiplier;
         private int numberOfMonsters;
+        
+        /* These are used to go from save game to game, and vice versa */
+        private Game g;
+        private string file;
+
+        /* It's impossible to reconstruct the same exact dungeon because of randomness, so use the previous structure. */
+        private List<Node> nodeList;
 
         /* Variables that make up the prefix, e.g.: "Difficulty level: " */
         private const string START = "START";
@@ -121,7 +123,9 @@ namespace STVRogue {
         private const string numberOfMonstersPrefix = "Number of monsters: ";
         private const string END = "END";
 
-        public GameState(string file) {
+        /* Assumption: you already have a game, so you can overwrite it with the details from the saved game, ie. all the variables */
+        public GameState(List<Node> currentDungeonStructure, string file) {
+            this.nodeList = currentDungeonStructure;
             this.file = file;
         }    
 
@@ -145,6 +149,7 @@ namespace STVRogue {
             Game result = new Game(Int32.Parse(GetSingleValueFromFile(difficultyLevelPrefix)),
                 Int32.Parse(GetSingleValueFromFile(nodeCapacityMultiplierPrefix)),
                 Int32.Parse(GetSingleValueFromFile(numberOfMonstersPrefix)));
+            result.dungeon.nodeList = nodeList; 
             result.player.id = GetSingleValueFromFile(playerNamePrefix);
             result.player.bag = ExtractBag(GetSingleValueFromFile(bagPrefix));
 
@@ -177,8 +182,8 @@ namespace STVRogue {
         }
 
         private string BagToString(List<Item> items) {
-            string result = "";
-            for(int i = 0; i < items.Count; ++i) {
+            string result = ItemInBagPrefix + items.Count + "!\n";
+            for (int i = 0; i < items.Count; ++i) {
                 result += i.ToString() + ": " + (items[i].IsCrystal ? "crystal" : "hp_potion")
                 + " , used: " 
                 + (items[i].IsUsed() ? "yes" : "no")
@@ -188,7 +193,13 @@ namespace STVRogue {
         }
 
         private List<Item> ExtractBag(string v) {
-            throw new NotImplementedException();
+            List<Item> result = new List<Item>();
+
+            for (int i = 0; i < GetVal(ItemInBagPrefix); ++i) {
+                Item newItem; 
+                GetSingleValueFromFile(i.ToString() + ": ") == "crystal" ? newItem = new Crystal(i.ToString()) : newItem = new Healingpotion(i.ToString);
+                GetSingleValueFromFile(i.ToString() + ": ")
+            }
         }
 
         private string PacksToString(List<Pack> packs) {
