@@ -23,15 +23,15 @@ namespace STVRogue
 		{
 			InitializeComponent();
 			game = new Game(5, 1, 20);
-			gamestate = new GameState(game);
-			gameplay = new GamePlay(gamestate);
-			gameplay.CreateSaveGameFile();
+		//	gamestate = new GameState(game);
+		//	gameplay = new GamePlay(gamestate);
+		//	gameplay.CreateSaveGameFile();
 			UpdateGame();
 		}
 
 		public void UpdateGame()
 		{
-			gameplay.SaveTurnToSaveGameFile();
+			// gameplay.SaveTurnToSaveGameFile();
 			if (game.player.HP == 0)
 			{
 				button1.Hide();
@@ -214,22 +214,25 @@ namespace STVRogue
         {
             foreach (Pack p in game.packs)
             {
-                if (p.location == game.player.location)
-                    continue;
-                if(p.alerted)
-                {
-                    if (game.dungeon.rnd.Next(2) == 0)
-                        p.MoveTowards(game.player.location);
-                }
-                else
-                {
-                    int nbs = p.location.neighbors.Count;
-                    int i = game.dungeon.rnd.Next(nbs + 1);
-                    if (i == nbs)
-                        continue;
-                    else
-                        p.Move(p.location.neighbors[i]);
-                }
+				if (p.members.Count() > 0)
+				{
+					if (p.location == game.player.location)
+						continue;
+					if (p.alerted)
+					{
+						if (game.dungeon.rnd.Next(2) == 0)
+							p.MoveTowards(game.player.location);
+					}
+					else
+					{
+						int nbs = p.location.neighbors.Count;
+						int i = game.dungeon.rnd.Next(nbs + 1);
+						if (i == nbs)
+							continue;
+						else
+							p.Move(p.location.neighbors[i]);
+					}
+				}
             }
         }
 
