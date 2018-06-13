@@ -76,6 +76,8 @@ namespace STVRogue.GameLogic
                 Logger.log("Pack " + id + " is trying to move to a full node " + u.id + ", but this would cause the node to exceed its capacity. Rejected.");
                 return;
             }
+            foreach (Monster m in members)
+                m.location = u;
             location.packs.Remove(this);
             location = u;
             u.packs.Add(this);
