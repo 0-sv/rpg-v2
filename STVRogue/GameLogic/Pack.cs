@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using STVRogue.Utils;
+using STVRogue.Gamelogic;
 
 namespace STVRogue.GameLogic
 {
@@ -14,21 +15,35 @@ namespace STVRogue.GameLogic
         public int startingHP = 0;
         public Node location;
         public Dungeon dungeon;
+		public int zone;
         public bool alerted = false; 
 
-        public Pack(string id, int n, Node loc)
+        public Pack(string id, int n, Node loc, bool gameplay, Dungeon thedungeon)
         {
             this.id = id;
             location = loc;
-            for (int i = 0; i < n; i++)
-            {
-                Monster m = new Monster("" + id + "_" + i);
-                m.location = location;
-                members.Add(m);
-                startingHP += m.GetHP();
-                m.SetPack(this);
-            }
+			dungeon = thedungeon;
+			if (!gameplay)
+			{
+				zone = dungeon.CurrentLevel(loc);
+				for (int i = 0; i < n; i++)
+				{
+					Monster m = new Monster("" + id + "_" + i);
+					m.location = location;
+					members.Add(m);
+					startingHP += m.GetHP();
+					m.SetPack(this);
+				}
+			}
         }
+
+		public void AddMonster(Monster monster)
+		{
+			monster.location = location;
+			members.Add(monster);
+			startingHP += monster.GetHP();
+			monster.SetPack(this);
+		}
 
         public void Attack(Player p)
         {
@@ -43,9 +58,14 @@ namespace STVRogue.GameLogic
         /* Move the pack to an adjacent node. */
         public void Move(Node u)
         {
+            Zone z = new Zone(dungeon, members[0]);
+            RNode rnode = new RNode(z);
+            RZone rzone = new RZone(z);
+            if (!rnode.validMove(this, u) || !rzone.validMove(u))
+                return;
             if (!location.neighbors.Contains(u)) 
                 throw new ArgumentException();
-            int capacity = dungeon.multiplier * (dungeon.Level(u) + 1);
+            int capacity = dungeon.multiplier * (dungeon.CurrentLevel(u) + 1);
             // count monsters already in the node:
             foreach (Pack Q in location.packs) {
                 capacity = capacity - Q.members.Count;

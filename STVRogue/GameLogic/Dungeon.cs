@@ -155,7 +155,7 @@ namespace STVRogue.GameLogic
 
 					monstersOnThisLevel += monstersOnNode;
 					// create a new pack and update its location
-					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode, nodeList[nodesOnThisLevelInRandomOrder[count]]);
+					Pack pack = new Pack(pack_id++.ToString(), monstersOnNode, nodeList[nodesOnThisLevelInRandomOrder[count]], false, this);
 					nodeList[nodesOnThisLevelInRandomOrder[count++]].packs.Add(pack);
 					packs.Add(pack);
 				
@@ -275,6 +275,11 @@ namespace STVRogue.GameLogic
         public int Level(Node d)
 		{
 			return p.countNumberOfBridges(startNode, exitNode);
+		}
+
+		public int CurrentLevel(Node d)
+		{
+			return p.countNumberOfBridges(startNode, d);
 		}
 	}
 }
