@@ -11,11 +11,6 @@ namespace STVRogue {
         private GameState gs;
         private string path = @"C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\saved_game.txt";
 
-        public GamePlay(string file) {
-            this.gs = new GameState(file);
-            this.offset = 0; 
-        }
-
         public GamePlay(GameState gs) {
             this.gs = gs;
         }
@@ -112,6 +107,7 @@ namespace STVRogue {
 
         /* Variables that make up the prefix, e.g.: "Difficulty level: " */
         private const string START = "START";
+        private const string ItemInBagPrefix = "Numer of items: ";
         private const string PackCountPrefix = "Pack count: ";
         private const string playerNamePrefix = "Player name: ";
         private const string bagPrefix = "Bag content: ";
@@ -184,8 +180,8 @@ namespace STVRogue {
         private string BagToString(List<Item> items) {
             string result = ItemInBagPrefix + items.Count + "!\n";
             for (int i = 0; i < items.Count; ++i) {
-                result += i.ToString() + ": " + (items[i].IsCrystal ? "crystal" : "hp_potion")
-                + " , used: " 
+                result += i.ToString() + "Crystal: " + (items[i].IsCrystal ? "yes" : "no")
+                + ", used: " 
                 + (items[i].IsUsed() ? "yes" : "no")
                 + "\n";
             }
@@ -196,10 +192,28 @@ namespace STVRogue {
             List<Item> result = new List<Item>();
 
             for (int i = 0; i < GetVal(ItemInBagPrefix); ++i) {
-                Item newItem; 
-                GetSingleValueFromFile(i.ToString() + ": ") == "crystal" ? newItem = new Crystal(i.ToString()) : newItem = new Healingpotion(i.ToString);
-                GetSingleValueFromFile(i.ToString() + ": ")
+                if (GetSingleValueFromFile(i.ToString() + "Crystal: ") == "yes") {
+                    Crystal newItem = new Crystal(i.ToString());
+                    if (GetSingleValueFromFile("Crystal: yes, used: ") == "yes") {
+                        newItem.used = true;
+                    }
+                    else {
+                         newItem.used = false;
+                    }
+                    result.Add(newItem);
+                }
+                else {
+                    HealingPotion newItem = new HealingPotion(i.ToString());
+                    result.Add(newItem);
+                    if (GetSingleValueFromFile("Crystal: no, used: ") == "yes") {
+                        newItem.used = true;
+                    } else {
+                        newItem.used = false;
+                    }
+                    result.Add(newItem);
+                }
             }
+            return result;
         }
 
         private string PacksToString(List<Pack> packs) {

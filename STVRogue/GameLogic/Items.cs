@@ -10,7 +10,7 @@ namespace STVRogue.GameLogic
     public class Item
     {
         public String id;
-        protected Boolean used = false;
+        public Boolean used = false;
 		public Node location;
         public bool IsHealingPotion => false;
         public bool IsCrystal => false;
