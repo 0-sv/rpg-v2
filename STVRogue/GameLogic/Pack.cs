@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using STVRogue.Utils;
+using STVRogue.Gamelogic;
 
 namespace STVRogue.GameLogic
 {
@@ -57,6 +58,11 @@ namespace STVRogue.GameLogic
         /* Move the pack to an adjacent node. */
         public void Move(Node u)
         {
+            Zone z = new Zone(dungeon, members[0]);
+            RNode rnode = new RNode(z);
+            RZone rzone = new RZone(z);
+            if (!rnode.validMove(this, u) || !rzone.validMove(u))
+                return;
             if (!location.neighbors.Contains(u)) 
                 throw new ArgumentException();
             int capacity = dungeon.multiplier * (dungeon.CurrentLevel(u) + 1);

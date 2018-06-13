@@ -214,6 +214,8 @@ namespace STVRogue
         {
             foreach (Pack p in game.packs)
             {
+                if (p.location == game.player.location)
+                    continue;
                 if(p.alerted)
                 {
                     if (game.dungeon.rnd.Next(2) == 0)
