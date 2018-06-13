@@ -45,18 +45,18 @@ namespace STVRogue {
             return file;
         }
 
-        public Game Reset () {
+        public Game Reset (Game g) {
             string file = OpenFile();
             file = GetTurnFromFile(file, 0);
-            GameState openGS = new GameState(file);
+            GameState openGS = new GameState(g.dungeon.nodeList, file);
             openGS.ToGame();
             return openGS.GetGame();
         }
 
-        public Game ReplayTurn(int currentTurn) {
+        public Game ReplayTurn(int currentTurn, Game g) {
             string file = OpenFile();
             file = GetTurnFromFile(file, currentTurn - 1);
-            GameState openGS = new GameState(file);
+            GameState openGS = new GameState(g.dungeon.nodeList, file);
             openGS.ToGame();
             return openGS.GetGame();
         }
@@ -73,12 +73,12 @@ namespace STVRogue {
         }
 
         /* Usage: first play a whole game, e.g. until the player dies. Then we have a range of turns: 1, 2, 3, 4 .. M to which you can test your specification */
-        public bool Replay(Specification s) {
-            Reset();
+        public bool Replay(Specification s, Game g) {
+            Reset(g);
             for (int i = 0; i < GetState().GetGame().turn; ++i) {
                 bool ok = s.test(GetState());
                 if (ok) {
-                    ReplayTurn(GetState().GetGame().turn);
+                    ReplayTurn(GetState().GetGame().turn, g);
                 }
                 else
                     return false;
