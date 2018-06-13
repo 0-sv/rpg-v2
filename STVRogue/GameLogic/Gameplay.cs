@@ -100,8 +100,8 @@ namespace STVRogue {
         private string turn;
         private string packLocations;
         // Dungeon representation to do: 
-        // - restore original nodelist:
-        //      - #nodes and their connectivity
+        private List<Node> nodes;
+
         private Game g;
         private string file;
         private int difficultyLevel;
@@ -110,6 +110,7 @@ namespace STVRogue {
 
         /* Variables that make up the prefix, e.g.: "Difficulty level: " */
         private const string START = "START";
+        private const string PackCountPrefix = "Pack count: ";
         private const string playerNamePrefix = "Player name: ";
         private const string bagPrefix = "Bag content: ";
         private const string playerLocationPrefix = "Player location: ";
@@ -153,18 +154,14 @@ namespace STVRogue {
             g = result;
         }
 
-        private List<Pack> ExtractPacks(string v) {
-            throw new NotImplementedException();
-        }
-
-        private List<Item> ExtractBag(string v) {
-            throw new NotImplementedException();
-        }
-
         private string GetSingleValueFromFile(string keyword) {
             int whitespace1 = file.IndexOf(keyword + keyword.Length);
             int whitespace2 = file.IndexOf("!", whitespace1 + 1);
             return file.Substring(whitespace1, whitespace2);
+        }
+
+        private int GetVal (string keyword) {
+            return Int32.Parse(GetSingleValueFromFile(keyword));
         }
 
         public override string ToString() {
@@ -190,19 +187,38 @@ namespace STVRogue {
             return result;
         }
 
+        private List<Item> ExtractBag(string v) {
+            throw new NotImplementedException();
+        }
+
         private string PacksToString(List<Pack> packs) {
-            string result = "\n";
+            string result = PackCountPrefix + packs.Count.ToString() + "!\n";
             for (int i = 0; i < packs.Count; ++i) {
-                result += "Location " + (packs[i].location.id) + ": " + "\n"
-                + " #monsters: "
-                + (packs[i].members.Count) + "\n" + "------------------" + "\n";
+                result += "Location " + (packs[i].location.id) + ": " + "!\n"
+                + " numOfPacks: "
+                + (packs[i].members.Count) + "!\n" + "------------------" + "\n";
                 for (int j = 0; j < packs[i].members.Count; ++j) {
                     Monster m = packs[i].members[j];
                     result += "Monster: " + j.ToString()
-                        + " with HP: " + m.GetHP().ToString()
-                        + " and attackrating: " + m.AttackRating + "\n";
+                        + " with HP: " + m.GetHP().ToString() + "!"
+                        + " and attackrating: " + m.AttackRating + "!\n";
                 }
                 result += "\n";
+            }
+            return result;
+        }
+
+        private List<Pack> ExtractPacks(string s) {
+            List<Pack> result = new List<Pack>();
+
+            for (int i = 0; i < GetVal(PackCountPrefix); ++i) {
+                Pack newPack = new Pack(i.ToString(), GetVal("numOfPacks:"), new Node(GetVal("Location" + i.ToString())));
+                for (int j = 0; j < GetVal("numOfPacks:"); ++j) {
+                    Monster newMonster = new Monster(j.ToString());
+                    newMonster.HP = GetVal("Monster: " + j.ToString() + "with HP:");
+                    newMonster.AttackRating = GetVal("Monster " + j.ToString() + "with HP:" + newMonster.HP + " and attackrating: ");
+                    newPack.Add(newMonster);
+                } 
             }
             return result;
         }
