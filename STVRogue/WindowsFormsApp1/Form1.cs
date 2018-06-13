@@ -14,6 +14,7 @@ namespace STVRogue
 	public partial class Form1 : Form
 	{
 		public Game game;
+		public GameState gamestate;
 		public GamePlay gameplay;
 		public bool inCombat = false;
 		public bool packChosen = false;
@@ -22,7 +23,8 @@ namespace STVRogue
 		{
 			InitializeComponent();
 			game = new Game(5, 1, 20);
-			gameplay = new GamePlay("e");
+			gamestate = new GameState(game);
+			gameplay = new GamePlay(gamestate);
 			gameplay.CreateSaveGameFile();
 			UpdateGame();
 		}

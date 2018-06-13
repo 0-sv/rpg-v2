@@ -1,9 +1,54 @@
-START Turn: ! 
-Player name: !
+START Turn: 0! 
+Player name: Bram!
 Bag content: !
-Player location: !
-Pack locations: !
-Difficulty level: 0!
-Node capacity multiplier: 0!
-Number of monsters: 0!
+Player location: 0!
+Pack locations: Pack count: 6!
+Location 6: !
+ numOfPacks: 1!
+------------------
+Monster: 0 with HP: 4! and attackrating: 1!
+
+Location 10: !
+ numOfPacks: 2!
+------------------
+Monster: 0 with HP: 6! and attackrating: 1!
+Monster: 1 with HP: 3! and attackrating: 1!
+
+Location 14: !
+ numOfPacks: 3!
+------------------
+Monster: 0 with HP: 5! and attackrating: 1!
+Monster: 1 with HP: 3! and attackrating: 1!
+Monster: 2 with HP: 3! and attackrating: 1!
+
+Location 20: !
+ numOfPacks: 4!
+------------------
+Monster: 0 with HP: 5! and attackrating: 1!
+Monster: 1 with HP: 1! and attackrating: 1!
+Monster: 2 with HP: 4! and attackrating: 1!
+Monster: 3 with HP: 3! and attackrating: 1!
+
+Location 24: !
+ numOfPacks: 6!
+------------------
+Monster: 0 with HP: 3! and attackrating: 1!
+Monster: 1 with HP: 1! and attackrating: 1!
+Monster: 2 with HP: 4! and attackrating: 1!
+Monster: 3 with HP: 6! and attackrating: 1!
+Monster: 4 with HP: 3! and attackrating: 1!
+Monster: 5 with HP: 5! and attackrating: 1!
+
+Location 23: !
+ numOfPacks: 4!
+------------------
+Monster: 0 with HP: 4! and attackrating: 1!
+Monster: 1 with HP: 1! and attackrating: 1!
+Monster: 2 with HP: 4! and attackrating: 1!
+Monster: 3 with HP: 1! and attackrating: 1!
+
+!
+Difficulty level: 5!
+Node capacity multiplier: 1!
+Number of monsters: 20!
 END

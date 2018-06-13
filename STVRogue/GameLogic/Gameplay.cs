@@ -212,12 +212,12 @@ namespace STVRogue {
             List<Pack> result = new List<Pack>();
 
             for (int i = 0; i < GetVal(PackCountPrefix); ++i) {
-                Pack newPack = new Pack(i.ToString(), GetVal("numOfPacks:"), new Node(GetVal("Location" + i.ToString())));
+                Pack newPack = new Pack(i.ToString(), GetVal("numOfPacks:"), new Node(GetVal("Location" + i.ToString()).ToString()), true, g.dungeon);
                 for (int j = 0; j < GetVal("numOfPacks:"); ++j) {
                     Monster newMonster = new Monster(j.ToString());
                     newMonster.HP = GetVal("Monster: " + j.ToString() + "with HP:");
                     newMonster.AttackRating = GetVal("Monster " + j.ToString() + "with HP:" + newMonster.HP + " and attackrating: ");
-                    newPack.Add(newMonster);
+                    newPack.AddMonster(newMonster);
                 } 
             }
             return result;

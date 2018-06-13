@@ -1,7 +1,0 @@
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\b\UnitTests\bin\Debug\UnitTests.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\b\UnitTests\bin\Debug\UnitTests.pdb
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.csprojResolveAssemblyReference.cache
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.csproj.CoreCompileInputs.cache
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.csproj.CopyComplete
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.pdb

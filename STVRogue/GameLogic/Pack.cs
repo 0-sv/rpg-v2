@@ -14,21 +14,35 @@ namespace STVRogue.GameLogic
         public int startingHP = 0;
         public Node location;
         public Dungeon dungeon;
+		public int zone;
         public bool alerted = false; 
 
-        public Pack(string id, int n, Node loc)
+        public Pack(string id, int n, Node loc, bool gameplay, Dungeon thedungeon)
         {
             this.id = id;
             location = loc;
-            for (int i = 0; i < n; i++)
-            {
-                Monster m = new Monster("" + id + "_" + i);
-                m.location = location;
-                members.Add(m);
-                startingHP += m.GetHP();
-                m.SetPack(this);
-            }
+			dungeon = thedungeon;
+			if (!gameplay)
+			{
+				zone = dungeon.CurrentLevel(loc);
+				for (int i = 0; i < n; i++)
+				{
+					Monster m = new Monster("" + id + "_" + i);
+					m.location = location;
+					members.Add(m);
+					startingHP += m.GetHP();
+					m.SetPack(this);
+				}
+			}
         }
+
+		public void AddMonster(Monster monster)
+		{
+			monster.location = location;
+			members.Add(monster);
+			startingHP += monster.GetHP();
+			monster.SetPack(this);
+		}
 
         public void Attack(Player p)
         {
@@ -45,7 +59,7 @@ namespace STVRogue.GameLogic
         {
             if (!location.neighbors.Contains(u)) 
                 throw new ArgumentException();
-            int capacity = dungeon.multiplier * (dungeon.Level(u) + 1);
+            int capacity = dungeon.multiplier * (dungeon.CurrentLevel(u) + 1);
             // count monsters already in the node:
             foreach (Pack Q in location.packs) {
                 capacity = capacity - Q.members.Count;
