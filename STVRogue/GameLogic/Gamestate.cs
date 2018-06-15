@@ -37,8 +37,16 @@ namespace STVRogue {
         private const string numberOfMonstersPrefix = "Number of monsters: ";
         private const string END = "END";
 
-        public Gamestate(string file) {
+        public Gamestate(Game g, string file) {
             this.file = file;
+            this.g = new Game(Int32.Parse(GetSingleValueFromFile(difficultyLevelPrefix)),
+                Int32.Parse(GetSingleValueFromFile(nodeCapacityMultiplierPrefix)),
+                Int32.Parse(GetSingleValueFromFile(numberOfMonstersPrefix)));
+            this.g.dungeon.nodeList = g.dungeon.nodeList;
+            this.g.dungeon.player.id = GetSingleValueFromFile(playerNamePrefix);
+            this.g.dungeon.player.bag = ExtractBag(GetSingleValueFromFile(bagPrefix));
+            this.g.dungeon.turn = Int32.Parse(GetSingleValueFromFile(turnPrefix));
+            this.g.dungeon.packs = ExtractPacks(GetSingleValueFromFile(packPrefix));
         }
 
         public Gamestate(Game g) {
@@ -56,20 +64,6 @@ namespace STVRogue {
 
         public Game GetGame() {
             return this.g;
-        }
-
-        public void ToGame() {
-            Game result = new Game(Int32.Parse(GetSingleValueFromFile(difficultyLevelPrefix)),
-                Int32.Parse(GetSingleValueFromFile(nodeCapacityMultiplierPrefix)),
-                Int32.Parse(GetSingleValueFromFile(numberOfMonstersPrefix)));
-            result.dungeon.nodeList = nodeList;
-            result.dungeon.player.id = GetSingleValueFromFile(playerNamePrefix);
-            result.dungeon.player.bag = ExtractBag(GetSingleValueFromFile(bagPrefix));
-
-            result.dungeon.turn = Int32.Parse(GetSingleValueFromFile(turnPrefix));
-            result.dungeon.packs = ExtractPacks(GetSingleValueFromFile(packPrefix));
-
-            g = result;
         }
 
         private string GetSingleValueFromFile(string keyword) {

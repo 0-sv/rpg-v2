@@ -1,0 +1,17 @@
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\b\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\b\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\i\WindowsFormsApp1\Debug\STVRogue.Form1.resources
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\i\WindowsFormsApp1\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\7064\i\WindowsFormsApp1\Debug\WindowsFormsApp1.exe
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\b\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\b\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\STVRogue.Form1.resources
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\WindowsFormsApp1\Debug\WindowsFormsApp1.exe

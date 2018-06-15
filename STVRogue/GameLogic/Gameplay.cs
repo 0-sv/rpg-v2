@@ -53,20 +53,22 @@ namespace STVRogue {
         }
 
         public void ReplayTurn() {
-            ptr -= 1;
+            ptr++;
         }
 
         public Gamestate GetState() {
             return states[ptr];
         }
 
-        /* Usage: first play a whole game, e.g. until the player dies. Then we have a range of turns: 1, 2, 3, 4 .. M to which you can test your specification */
         public bool Replay(Specification s) {
             Reset();
             for (int i = 0; i < states.Count; ++i) {
-                bool ok = s.test(states[ptr]);
-                if (ok) 
-                    ReplayTurn();
+                // To do: write s.test(G)
+                if (s.test(states[ptr]))
+                    if (ptr < states.Count)
+                        ReplayTurn();
+                    else
+                        break;
                 else
                     return false;
             }
