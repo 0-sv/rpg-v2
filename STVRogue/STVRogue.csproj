@@ -50,6 +50,7 @@
     <Compile Include="GameLogic\Dungeon.cs" />
     <Compile Include="GameLogic\Game.cs" />
     <Compile Include="GameLogic\Gameplay.cs" />
+    <Compile Include="GameLogic\Gamestate.cs" />
     <Compile Include="GameLogic\Items.cs" />
     <Compile Include="GameLogic\Node.cs" />
     <Compile Include="GameLogic\Pack.cs" />

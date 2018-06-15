@@ -16,17 +16,20 @@ namespace STVRogue.GameLogic
 		public int[] bridges;
 		public int difficultyLevel;
         public int[] amountOfMonsters;
+        public int numberOfMonsters;
 		public int node;
 		public Random rnd = new Random();
         public int multiplier; 
         public Player player;
         public List<Pack> packs;
         public List<Item> items;
+        public int turn;
         
-		public Dungeon(int difficultyLevel, int multiplier, int numberOfMonsters, Player player) { 
+		public Dungeon(int difficultyLevel, int multiplier, int numberOfMonsters) {
+            player = new Player("Bram");
 			this.difficultyLevel = difficultyLevel;
 			this.multiplier = multiplier;
-            this.player = player;
+            this.numberOfMonsters = numberOfMonsters;
 			nodeList = new List<Node>();
 			PopulateNodeList();
 			startNode = nodeList[0];
@@ -37,6 +40,7 @@ namespace STVRogue.GameLogic
             player.Move(startNode);
 			int totalMonsterHP = calculateTotalMonsterHP();
 			items = additems(totalMonsterHP, bridges[bridges.Length - 1], player.HPbase);
+            turn = 0;
 		}
 
 		private void PopulateNodeList()

@@ -8,7 +8,7 @@ namespace STVRogue.GameLogic {
     public class Specification {
         public Specification() { }
 
-        public bool test(GameState gs) {
+        public bool test(Gamestate currentGame) {
             throw new NotImplementedException();
         }
     }
