@@ -28,20 +28,20 @@ namespace STVRogue {
         public string OpenFile(int turn) {
             string filename = path + turn.ToString() + ".txt";
             string result = "";
-            using (FileStream fs = File.OpenRead(path)) {
+            using (FileStream fs = File.OpenRead(filename)) {
                 byte[] b = new byte[1024];
                 UTF8Encoding temp = new UTF8Encoding(true);
                 while (fs.Read(b, 0, b.Length) > 0) {
                     result += temp.GetString(b);
                 }
             }
-            return filename;
+            return result;
         }
     }
 
     public class Gameplay {
-        List<Gamestate> states;
-        int ptr; 
+        public List<Gamestate> states;
+        private int ptr; 
 
         public Gameplay (int currentTurn) {
             states = new List<Gamestate>();

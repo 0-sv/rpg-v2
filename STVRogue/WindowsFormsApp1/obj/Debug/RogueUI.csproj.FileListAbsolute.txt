@@ -1,0 +1,13 @@
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\STVRogue.dll
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\STVRogue.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\STVRogue.RogueUI.resources
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csproj.GenerateResource.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csproj.CoreCompileInputs.cache
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csproj.CopyComplete
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csprojAssemblyReference.cache
