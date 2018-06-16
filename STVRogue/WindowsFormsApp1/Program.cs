@@ -13,7 +13,7 @@ namespace STVRogue
 		static void Main(string[] args) {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(new RogueUI());
 		//	Game game = new Game(5, 2, 10);
 			
 		//	while (game.player.HP != 0) {

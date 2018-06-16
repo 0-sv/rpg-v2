@@ -12,8 +12,6 @@ namespace STVRogue.GameLogic
         public String id;
         public Boolean used = false;
 		public Node location;
-        public bool IsHealingPotion => false;
-        public bool IsCrystal => false;
         public Item() { }
         public Item(String id) { this.id = id; }
 
@@ -32,12 +30,16 @@ namespace STVRogue.GameLogic
                 used = true;
             }
         }
+
+        virtual public bool isCrystal() {
+            return false;
+        }
     }
 
     public class HealingPotion : Item
     {
         public int HPvalue;
-        new public bool IsHealingPotion => true;
+        public bool IsHealingPotion => true;
 
         /* Create a healing potion with random HP-value */
         public HealingPotion(String id)
@@ -50,17 +52,24 @@ namespace STVRogue.GameLogic
             base.Use(player);
             player.HP = Math.Min(player.HPbase, player.HP + HPvalue);
         }
+        public override bool isCrystal() {
+            return false;
+        }
     }
 
     public class Crystal : Item
     {
-        new public bool IsCrystal => true;
+        public bool IsCrystal => true;
         public Crystal(String id) : base(id) { }
         override public void Use(Player player) {
             base.Use(player);
             player.accelerated = true;
             if (player.location is Bridge) 
                 player.location.Disconnect(player.location as Bridge);
+        }
+
+        public override bool isCrystal() {
+            return true;
         }
     }
 }

@@ -18,11 +18,11 @@ namespace STVRogue.GameLogic
 		public int zone;
         public bool alerted = false; 
 
-        public Pack(string id, int n, Node loc, bool gameplay, Dungeon thedungeon)
+        public Pack(string id, int n, Node loc, bool gameplay, Dungeon dungeon)
         {
             this.id = id;
-            location = loc;
-			dungeon = thedungeon;
+            this.location = loc;
+			this.dungeon = dungeon;
 			if (!gameplay)
 			{
 				zone = dungeon.CurrentLevel(loc);

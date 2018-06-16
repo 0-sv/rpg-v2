@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STVRogue", "STVRogue.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57A9196C-1040-4FB0-A388-BC7ED1FCFFB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{A480EC08-DC13-4D8B-AA57-69F3EF2E0F39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RogueUI", "WindowsFormsApp1\RogueUI.csproj", "{A480EC08-DC13-4D8B-AA57-69F3EF2E0F39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{FD9B4044-A2A3-4B42-A848-D00DE178DF9D}"
 EndProject
