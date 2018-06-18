@@ -220,6 +220,7 @@ namespace STVRogue
 
 		public void HideButtons()
 		{
+			button2.Hide();
 			button3.Hide();
 			button4.Hide();
 			button8.Hide();
