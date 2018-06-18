@@ -16,7 +16,6 @@ namespace UnitTests {
             g = new Game(5, 1, 5);
             g.dungeon.player.bag.Add(new HealingPotion("0"));
             gs = new Gamestate(g);
-            
             savegame = new Savegame(gs);
         }
 

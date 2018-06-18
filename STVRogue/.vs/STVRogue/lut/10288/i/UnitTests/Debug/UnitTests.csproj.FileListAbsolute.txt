@@ -1,4 +1,0 @@
-C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\b\UnitTests\bin\Debug\UnitTests.dll
-C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.csproj.CoreCompileInputs.cache
-C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.csproj.CopyComplete
-C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\.vs\STVRogue\lut\0\i\UnitTests\Debug\UnitTests.dll

@@ -48,6 +48,16 @@ namespace STVRogue {
             this.ptr = currentTurn;
         }
 
+        public void AddGamestate(Gamestate gs) {
+            if (gs.GetGame().dungeon.turn == ptr + 1) {
+                states.Add(gs);
+                ptr++;
+            } 
+            else {
+                Console.WriteLine("The next gamestate should be the next turn.");
+            }
+        }
+
         public void Reset() {
             ptr = 0;
         }

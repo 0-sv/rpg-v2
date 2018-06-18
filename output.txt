@@ -2,6 +2,7 @@ xUnit.net Console Runner (64-bit Desktop .NET 4.0.30319.42000)
   Discovering: UnitTests
   Discovered:  UnitTests
   Starting:    UnitTests
+** Creating a game of difficulty level 5, node capacity multiplier 1, and 5 monsters.
 ** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
 ** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
 ** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
@@ -17,4 +18,4 @@ xUnit.net Console Runner (64-bit Desktop .NET 4.0.30319.42000)
            bij UnitTests.GamestateTest.ExtractPacksWorks() in C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\GameStateTest.cs:regel 82
   Finished:    UnitTests
 === TEST EXECUTION SUMMARY ===
-   UnitTests  Total: 6, Errors: 0, Failed: 1, Skipped: 0, Time: 0,306s
+   UnitTests  Total: 7, Errors: 0, Failed: 1, Skipped: 0, Time: 0,270s
