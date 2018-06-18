@@ -3,19 +3,22 @@ xUnit.net Console Runner (64-bit Desktop .NET 4.0.30319.42000)
   Discovered:  UnitTests
   Starting:    UnitTests
 ** Creating a game of difficulty level 5, node capacity multiplier 1, and 5 monsters.
-** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
-** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
-** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
-** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
-** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
-** Creating a game of difficulty level 5, node capacity multiplier 1, and 2 monsters.
-      System.FormatException : De indeling van de invoertekenreeks is onjuist.
+** Creating a game of difficulty level 20, node capacity multiplier 1, and 2 monsters.
+** Creating a game of difficulty level 5, node capacity multiplier 1, and 5 monsters.
+** Creating a game of difficulty level 20, node capacity multiplier 1, and 2 monsters.
+** Creating a game of difficulty level 5, node capacity multiplier 1, and 5 monsters.
+** Creating a game of difficulty level 20, node capacity multiplier 1, and 2 monsters.
+** Creating a game of difficulty level 20, node capacity multiplier 1, and 2 monsters.
+** Creating a game of difficulty level 20, node capacity multiplier 1, and 2 monsters.
+      Assert.Equal() Failure
+                             (pos 12)
+      Expected: Pack count: 2;\nLocation: 17;\nMonsters on this locatioúúú
+      Actual:   Pack count: 0;\n
+                             (pos 12)
       Stack Trace:
-           bij System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
-           bij System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
-           bij STVRogue.Gamestate.GetVal(String keyword) in C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\GameLogic\Gamestate.cs:regel 77
-           bij STVRogue.Gamestate.ExtractPacks() in C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\GameLogic\Gamestate.cs:regel 150
-           bij UnitTests.GamestateTest.ExtractPacksWorks() in C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\GameStateTest.cs:regel 82
+           bij Xunit.Assert.Equal(String expected, String actual, Boolean ignoreCase, Boolean ignoreLineEndingDifferences, Boolean ignoreWhiteSpaceDifferences)
+           bij Xunit.Assert.Equal(String expected, String actual)
+           bij UnitTests.Gameplaytest.ExtractPacksWorks() in C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\Gameplaytest.cs:regel 46
   Finished:    UnitTests
 === TEST EXECUTION SUMMARY ===
-   UnitTests  Total: 7, Errors: 0, Failed: 1, Skipped: 0, Time: 0,270s
+   UnitTests  Total: 7, Errors: 0, Failed: 1, Skipped: 0, Time: 0,308s

@@ -49,7 +49,8 @@ namespace STVRogue {
         }
 
         public void AddGamestate(Gamestate gs) {
-            if (gs.GetGame().dungeon.turn == ptr + 1) {
+            int turn = gs.GetGame().dungeon.turn;
+            if (turn == 0 || turn == ptr + 1) {
                 states.Add(gs);
                 ptr++;
             } 

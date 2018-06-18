@@ -17,7 +17,7 @@ namespace UnitTests
         string contentOfBag;
         string packString;
         public GamestateTest() {
-            g = new Game(5, 1, 2);
+            g = new Game(20, 1, 2);
             gs = new Gamestate(g);
             bag = new List<Item>();
             bag.Add(new HealingPotion("0"));
@@ -70,17 +70,7 @@ namespace UnitTests
             Assert.Equal(0, gs.GetGame().dungeon.turn);
         }
 
-        /*[Fact]
-        public void PackToStringWorks() {
-            // Skip for now because pack placement is non-deterministic. 
-            Assert.Equal(packString,
-                gs.PacksToString(packs));
-        }
-        */
-        [Fact]
-        public void ExtractPacksWorks() {
-            Assert.Equal(gs.PacksToString(packs),
-                gs.PacksToString(gs.ExtractPacks()));
-        }
+
+
 	}
 }
