@@ -35,7 +35,9 @@ namespace STVRogue {
                     result += temp.GetString(b);
                 }
             }
+            
             return result;
+            
         }
     }
 

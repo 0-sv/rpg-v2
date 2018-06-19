@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Xunit;
 using STVRogue.GameLogic;
 using STVRogue;
@@ -17,7 +13,7 @@ namespace UnitTests
         string contentOfBag;
         string packString;
         public GamestateTest() {
-            g = new Game(20, 1, 2);
+            g = new Game(20, 1, 50);
             gs = new Gamestate(g);
             bag = new List<Item>();
             bag.Add(new HealingPotion("0"));
@@ -65,12 +61,30 @@ namespace UnitTests
 
         [Fact]
         public void WriteSaveGameForPackString() {
-            Savegame savegame = new Savegame(gs);
+            Game withPacks = new Game(5, 2, 10);
+            Gamestate withPacksGS = new Gamestate(withPacks);
+            Savegame savegame = new Savegame(withPacksGS);
             savegame.SaveTurn();
-            Assert.Equal(0, gs.GetGame().dungeon.turn);
+            Gamestate openFile = new Gamestate(withPacks, savegame.OpenFile(0));
+            Assert.Equal(withPacks.dungeon.packs, openFile.g.dungeon.packs);
         }
 
-
-
+        [Fact]
+        public void GameStateIsSameAsBefore() {
+            Game withItems = new Game(5, 2, 20);
+            withItems.dungeon.player.PickUp(new HealingPotion("0"));
+            withItems.dungeon.player.PickUp(new HealingPotion("1"));
+            withItems.dungeon.player.PickUp(new HealingPotion("2"));
+            withItems.dungeon.player.PickUp(new HealingPotion("3"));
+            withItems.dungeon.turn = 5;
+            Gamestate withItemsGS = new Gamestate(withItems);
+            Savegame save = new Savegame(withItemsGS);
+            save.SaveTurn();
+            Gamestate fromFile = new Gamestate(g, save.OpenFile(5));
+            Assert.Equal(withItemsGS.g.dungeon.player.location.id, fromFile.g.dungeon.player.location.id);
+            Assert.Equal(withItemsGS.BagToString(g.dungeon.player.bag), fromFile.BagToString(g.dungeon.player.bag));
+            
+            Assert.Equal(withItemsGS.g.dungeon.turn, fromFile.g.dungeon.turn);
+        }
 	}
 }

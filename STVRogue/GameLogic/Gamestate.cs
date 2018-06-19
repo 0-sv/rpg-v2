@@ -1,12 +1,9 @@
 ﻿using STVRogue.GameLogic;
 using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Text;
 
 namespace STVRogue {
     public class Gamestate {
-        public string playerName;
         public string playerItems;
         public string playerLocation;
         public string turn;
@@ -18,7 +15,6 @@ namespace STVRogue {
         public const string START = "START";
         public const string ItemInBagPrefix = "Number of items: ";
         public const string PackCountPrefix = "Pack count: ";
-        public const string playerNamePrefix = "Player name: ";
         public const string bagPrefix = "Bag content: ";
         public const string playerLocationPrefix = "Player location: ";
         public const string turnPrefix = "Turn: ";
@@ -26,22 +22,20 @@ namespace STVRogue {
         public const string END = "END";
 
         public Gamestate(Game g, string file) {
+            this.g = g;
             this.file = file;
-            this.g.dungeon.nodeList = g.dungeon.nodeList;
-            this.g.dungeon.player.id = GetSingleValueFromFile(playerNamePrefix);
             this.g.dungeon.player.bag = ExtractBag();
-            this.g.dungeon.turn = Int32.Parse(GetSingleValueFromFile(turnPrefix));
+            this.g.dungeon.player.location = g.dungeon.nodeList[GetVal(playerLocationPrefix)];
+            this.g.dungeon.turn = GetVal(turnPrefix);
             this.g.dungeon.packs = ExtractPacks();
         }
 
         public Gamestate(Game g) {
             this.g = g;
-            this.playerName = g.dungeon.player.id;
             this.playerItems = BagToString(g.dungeon.player.bag);
             this.playerLocation = NodeToString(g.dungeon.player.location);
             this.turn = g.dungeon.turn.ToString();
             this.packLocations = PacksToString(g.dungeon.packs);
-            this.g.dungeon.nodeList = g.dungeon.nodeList;
         }
 
         public Game GetGame() {
@@ -63,7 +57,6 @@ namespace STVRogue {
 
         public override string ToString() {
             return START + " " + turnPrefix + turn + "; \n"
-                + playerNamePrefix + playerName + ";" + "\n"
                 + bagPrefix + playerItems + ";" + "\n"
                 + playerLocationPrefix + playerLocation + ";" + "\n"
                 + packLocations
