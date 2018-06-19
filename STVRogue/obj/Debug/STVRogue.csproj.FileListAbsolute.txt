@@ -25,3 +25,7 @@ C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\D
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojResolveAssemblyReference.cache
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.reporters.net452.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.abstractions.dll
