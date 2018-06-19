@@ -13,7 +13,6 @@ C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csproj.CoreCompileInputs.cache
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojResolveAssemblyReference.cache
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\STVRogue.dll
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\STVRogue.pdb
 C:\Users\Sebas\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csproj.CoreCompileInputs.cache
@@ -25,3 +24,10 @@ C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\D
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojResolveAssemblyReference.cache
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.dll
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.pdb
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csprojResolveAssemblyReference.cache
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.reporters.net452.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.abstractions.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\obj\Debug\STVRogue.csproj.CopyComplete

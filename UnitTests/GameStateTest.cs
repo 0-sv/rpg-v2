@@ -64,7 +64,7 @@ namespace UnitTests
             Gamestate withPacksGS = new Gamestate(withPacks);
             Savegame savegame = new Savegame(withPacksGS);
             savegame.SaveTurn();
-            Gamestate openFile = new Gamestate(withPacks, savegame.OpenFile(0));
+            Gamestate openFile = new Gamestate(withPacks, savegame.OpenFile(0, ""));
             Assert.Equal(withPacks.dungeon.packs, openFile.g.dungeon.packs);
         }
 
@@ -79,7 +79,7 @@ namespace UnitTests
             Gamestate withItemsGS = new Gamestate(withItems);
             Savegame save = new Savegame(withItemsGS);
             save.SaveTurn();
-            Gamestate fromFile = new Gamestate(g, save.OpenFile(5));
+            Gamestate fromFile = new Gamestate(g, save.OpenFile(5, ""));
             Assert.Equal(withItemsGS.g.dungeon.player.location.id, fromFile.g.dungeon.player.location.id);
             Assert.Equal(withItemsGS.BagToString(g.dungeon.player.bag), fromFile.BagToString(g.dungeon.player.bag));
             
