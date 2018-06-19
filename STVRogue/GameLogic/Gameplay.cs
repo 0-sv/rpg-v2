@@ -35,9 +35,7 @@ namespace STVRogue {
                     result += temp.GetString(b);
                 }
             }
-            
             return result;
-            
         }
     }
 
@@ -74,15 +72,9 @@ namespace STVRogue {
         }
 
         public bool Replay(Specification s) {
-            Reset();
             for (int i = 0; i < states.Count; ++i) {
                 // To do: write s.test(G)
-                if (s.test(states[ptr]))
-                    if (ptr < states.Count)
-                        ReplayTurn();
-                    else
-                        break;
-                else
+                if (!s.test(states[i]))
                     return false;
             }
             return true;
