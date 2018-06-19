@@ -24,8 +24,3 @@ C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFor
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csproj.CopyComplete
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.runner.visualstudio.testadapter.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.runner.reporters.net452.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.runner.utility.net452.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.abstractions.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll

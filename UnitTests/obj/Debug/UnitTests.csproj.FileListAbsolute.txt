@@ -23,6 +23,7 @@ C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.core.dll
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.execution.desktop.dll
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\STVRogue.pdb
+C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.abstractions.xml
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.assert.xml
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.core.xml
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.execution.desktop.xml
@@ -31,7 +32,3 @@ C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\obj\Debug
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\obj\Debug\UnitTests.pdb
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.runner.reporters.net452.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\xunit.runner.utility.net452.dll
-C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\UnitTests\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
