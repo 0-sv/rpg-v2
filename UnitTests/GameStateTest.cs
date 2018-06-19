@@ -26,7 +26,6 @@ namespace UnitTests
             contentOfBag = "Number of items: 4;\nCrystal 0: no;, used: yes;\nCrystal 1: yes;, used: yes;\nCrystal 2: no;, used: no;\nCrystal 3: yes;, used: no;\n";
             packString = "Pack count: 1;\nLocation: 23 \nnumOfPacks: 2;\n------------------\nMonster: 0 with HP: 4; and attackrating: 1;\nMonster: 1 with HP: 3; and attackrating: 1;\n------------------";
             gs.file = contentOfBag + packString;
-
         }
 
         [Fact]
