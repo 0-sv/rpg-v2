@@ -3,9 +3,8 @@ using Xunit;
 using STVRogue.GameLogic;
 using STVRogue;
 
-namespace UnitTests
-{
-	public class GamestateTest {
+namespace UnitTests {
+    public class GamestateTest {
         Game g;
         Gamestate gs;
         List<Item> bag;
@@ -40,9 +39,9 @@ namespace UnitTests
         [Fact]
         public void GetSingleValueFromFileWorks_AlsoWithInt() {
             gs.file = "SOMEINTEGER: 1234;";
-            
+
             int answer = 1234;
-            
+
             Assert.Equal(answer, gs.GetVal("SOMEINTEGER: "));
         }
 
@@ -54,7 +53,7 @@ namespace UnitTests
 
         [Fact]
         public void ExtractBagWorks() {
-            Assert.Equal(gs.BagToString(bag), 
+            Assert.Equal(gs.BagToString(bag),
                 gs.BagToString(gs.ExtractBag()));
         }
 
@@ -64,7 +63,7 @@ namespace UnitTests
             Gamestate withPacksGS = new Gamestate(withPacks);
             Savegame savegame = new Savegame(withPacksGS);
             savegame.SaveTurn();
-            Gamestate openFile = new Gamestate(withPacks, savegame.OpenFile(0));
+            Gamestate openFile = new Gamestate(withPacks, savegame.OpenFile(0, ""));
             Assert.Equal(withPacks.dungeon.packs, openFile.g.dungeon.packs);
         }
 
@@ -79,11 +78,11 @@ namespace UnitTests
             Gamestate withItemsGS = new Gamestate(withItems);
             Savegame save = new Savegame(withItemsGS);
             save.SaveTurn();
-            Gamestate fromFile = new Gamestate(g, save.OpenFile(5));
+            Gamestate fromFile = new Gamestate(g, save.OpenFile(5, ""));
             Assert.Equal(withItemsGS.g.dungeon.player.location.id, fromFile.g.dungeon.player.location.id);
             Assert.Equal(withItemsGS.BagToString(g.dungeon.player.bag), fromFile.BagToString(g.dungeon.player.bag));
-            
+
             Assert.Equal(withItemsGS.g.dungeon.turn, fromFile.g.dungeon.turn);
         }
-	}
+    }
 }

@@ -6,10 +6,10 @@ using System.Text;
 
 namespace STVRogue {
     public class Savegame {
-        private int offset; 
+        private int offset;
         private FileStream fs;
         private Gamestate gs;
-        private string path = @"C:\temp\saved_turn ";
+        private string path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game5/game5_turn";
 
         public Savegame(Gamestate gs) {
             this.gs = gs;
@@ -25,8 +25,12 @@ namespace STVRogue {
             offset = filename.Length;
         }
 
-        public string OpenFile(int turn) {
-            string filename = path + turn.ToString() + ".txt";
+        public string OpenFile(int turn, string filename) {
+            if (filename == "") {
+                filename = path + turn.ToString() + ".txt";
+            } else {
+                filename = filename + turn.ToString() + ".txt";
+            }
             string result = "";
             using (FileStream fs = File.OpenRead(filename)) {
                 byte[] b = new byte[1024];
@@ -34,6 +38,7 @@ namespace STVRogue {
                 while (fs.Read(b, 0, b.Length) > 0) {
                     result += temp.GetString(b);
                 }
+                fs.Close();
             }
             return result;
         }
@@ -41,9 +46,9 @@ namespace STVRogue {
 
     public class Gameplay {
         public List<Gamestate> states;
-        private int ptr; 
+        private int ptr;
 
-        public Gameplay (int currentTurn) {
+        public Gameplay(int currentTurn) {
             states = new List<Gamestate>();
             this.ptr = currentTurn;
         }
@@ -53,8 +58,7 @@ namespace STVRogue {
             if (turn == 0 || turn == ptr + 1) {
                 states.Add(gs);
                 ptr++;
-            } 
-            else {
+            } else {
                 Console.WriteLine("The next gamestate should be the next turn.");
             }
         }

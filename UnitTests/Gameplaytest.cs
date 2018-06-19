@@ -9,7 +9,7 @@ using Xunit;
 
 namespace UnitTests {
     public class Gameplaytest {
-        Game g; 
+        Game g;
         Gamestate gs;
         Savegame savegame;
         public Gameplaytest() {
@@ -22,7 +22,7 @@ namespace UnitTests {
         [Fact]
         public void SaveFileIsSameAsOpenFile() {
             savegame.SaveTurn();
-            string savedFile = savegame.OpenFile(0);
+            string savedFile = savegame.OpenFile(0, "");
             Assert.Contains("Bag content", savedFile);
             Assert.Contains("Player location", savedFile);
             Assert.Contains("END", savedFile);
