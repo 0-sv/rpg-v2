@@ -1,0 +1,32 @@
+START Turn: 0; 
+Bag content: Number of items: 0;
+;
+Player location: 0;
+Pack count: 4;
+Location: 7;
+Monsters on this location: 1;
+------------------
+Monster: 0 with HP: 1; and attackrating: 1;
+------------------
+Location: 13;
+Monsters on this location: 1;
+------------------
+Monster: 0 with HP: 1; and attackrating: 1;
+------------------
+Location: 18;
+Monsters on this location: 2;
+------------------
+Monster: 0 with HP: 6; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+------------------
+Location: 23;
+Monsters on this location: 6;
+------------------
+Monster: 0 with HP: 3; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+Monster: 2 with HP: 4; and attackrating: 1;
+Monster: 3 with HP: 3; and attackrating: 1;
+Monster: 4 with HP: 4; and attackrating: 1;
+Monster: 5 with HP: 3; and attackrating: 1;
+------------------
+END

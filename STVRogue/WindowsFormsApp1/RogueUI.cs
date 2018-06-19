@@ -14,7 +14,8 @@ namespace STVRogue
 	public partial class RogueUI : Form
 	{
 		public Game game;
-		public Gameplay gameplay;
+	//	public Gameplay gameplay =  new Gameplay(0);
+		
 		public bool inCombat = false;
 		public bool packChosen = false;
 		int packBeingAttacked = 0;
@@ -27,6 +28,10 @@ namespace STVRogue
 
 		public void UpdateGame()
 		{
+		//	Gamestate gamestate = new Gamestate(game);
+		//	Savegame savegame = new Savegame(gamestate);
+		//	savegame.SaveTurn();
+		//	gameplay.AddGamestate(gamestate);
 			if (game.dungeon.player.HP == 0)
 			{
 				button1.Hide();
@@ -105,8 +110,6 @@ namespace STVRogue
 			button10.Hide();
 			button11.Hide();
 
-			//	button1.Hide();
-
 		}
 
 		public void CombatUI()
@@ -173,9 +176,6 @@ namespace STVRogue
 			else
 			{
 				HideButtons();
-				//	button5.Hide();
-				//	button6.Hide();
-				//		button7.Hide();
 				button1.Text = "Attack monster 1 (HP " + game.dungeon.player.location.packs[packBeingAttacked].members[0].HP + "/" + game.dungeon.player.location.packs[packBeingAttacked].members[0].HPbase + ")";
 				if (game.dungeon.player.location.packs[packBeingAttacked].members.Count > 1)
 				{
