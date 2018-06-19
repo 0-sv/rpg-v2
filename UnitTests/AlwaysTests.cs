@@ -32,7 +32,7 @@ namespace UnitTests
 		[Fact]
 		public void test_HPplayer_never_negative()
 		{
-			for (int k = 1; k < 2; k++)
+			for (int k = 1; k < 6; k++)
 			{
 				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
 				Always always = new Always((G => G.dungeon.player.HP >= 0));
@@ -50,11 +50,37 @@ namespace UnitTests
 			for (int k = 1; k < 6; k++)
 			{
 				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
-				for (int i = 0; i < gameturns[k-1]; i++)
+				for (int i = 0; i < gameturns[k - 1]; i++)
 				{
 					foreach (Pack pack in g.dungeon.packs)
 					{
 						Always always = new Always((G => pack.zone == G.dungeon.CurrentLevel(pack.location)));
+						data = savegame.OpenFile(i, path);
+						Gamestate gamestate = new Gamestate(g, data);
+						Assert.True(always.test(g));
+
+					}
+				}
+			}
+		}
+		[Fact]
+		public void test_RNode()
+		{
+			int monstersOnNode = 0;
+			for (int k = 1; k < 6; k++)
+			{
+				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
+				for (int i = 0; i < gameturns[k - 1]; i++)
+				{
+
+					foreach (Node node in g.dungeon.nodeList)
+					{
+						monstersOnNode = 0;
+						foreach (Pack pack in node.packs)
+						{
+							monstersOnNode += pack.members.Count();
+						}
+						Always always = new Always((G => monstersOnNode <= G.dungeon.multiplier * (G.dungeon.Level(node) + 1)));
 						data = savegame.OpenFile(i, path);
 						Gamestate gamestate = new Gamestate(g, data);
 						Assert.True(always.test(g));
