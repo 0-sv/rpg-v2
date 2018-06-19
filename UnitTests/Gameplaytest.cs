@@ -26,8 +26,6 @@ namespace UnitTests {
             Assert.Contains("Bram", savedFile);
             Assert.Contains("Bag content", savedFile);
             Assert.Contains("Player location", savedFile);
-            Assert.Contains("Difficulty level", savedFile);
-            Assert.Contains("Number of monsters", savedFile);
             Assert.Contains("END", savedFile);
         }
         /*

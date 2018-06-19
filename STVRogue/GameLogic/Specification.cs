@@ -12,4 +12,10 @@ namespace STVRogue.GameLogic {
             throw new NotImplementedException();
         }
     }
+	public class Always : Specification
+	{
+		private Predicate<Game> p;
+		public Always(Predicate<Game> p) { this.p = p; }
+		public bool test(Game G) { return p(G); }
+	}
 }

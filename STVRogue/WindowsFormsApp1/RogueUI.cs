@@ -120,23 +120,54 @@ namespace STVRogue
 			{
 				button1.Text = "Attack pack 1";
 				button2.Hide();
+				button3.Hide();
+				button4.Hide();
+				button8.Hide();
+				button9.Hide();
+				button10.Hide();
+				button11.Hide();
 				if (game.dungeon.player.location.packs.Count > 1)
 				{
 					button2.Text = "Attack pack 2";
 					button2.Show();
 				}
-				button3.Hide();
-				button4.Hide();
+				if (game.dungeon.player.location.packs.Count > 2)
+				{
+					button3.Text = "Attack pack 3";
+					button3.Show();
+				}
+				if (game.dungeon.player.location.packs.Count > 3)
+				{
+					button4.Text = "Attack pack 4";
+					button4.Show();
+				}
+				if (game.dungeon.player.location.packs.Count > 4)
+				{
+					button8.Text = "Attack pack 5";
+					button8.Show();
+				}
+				if (game.dungeon.player.location.packs.Count > 5)
+				{
+					button9.Text = "Attack pack 6";
+					button9.Show();
+				}
+				if (game.dungeon.player.location.packs.Count > 6)
+				{
+					button10.Text = "Attack pack 7";
+					button10.Show();
+				}
+				if (game.dungeon.player.location.packs.Count > 7)
+				{
+					button11.Text = "Attack pack 8";
+					button11.Show();
+				}
 
 				button5.Show();
 				button6.Show();
 				button7.Show();
 				button6.Text = "Use Crystal";
 
-				button8.Hide();
-				button9.Hide();
-				button10.Hide();
-				button11.Hide();
+				
 
 			}
 			else
@@ -189,6 +220,7 @@ namespace STVRogue
 
 		public void HideButtons()
 		{
+			button2.Hide();
 			button3.Hide();
 			button4.Hide();
 			button8.Hide();

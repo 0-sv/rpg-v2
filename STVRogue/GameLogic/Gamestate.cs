@@ -130,7 +130,7 @@ namespace STVRogue {
             for (int i = 0; i < GetVal(PackCountPrefix); ++i) {
                 Pack newPack = new Pack(i.ToString(), 
                     GetVal("Monsters on this location:"), 
-                    g.dungeon.nodeList[GetVal("Location:") - 1], 
+                    new Node(GetVal("Location:").ToString()), 
                     true, 
                     g.dungeon);
                 for (int j = 0; j < GetVal("numOfPacks:"); ++j) {
