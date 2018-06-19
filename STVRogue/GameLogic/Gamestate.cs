@@ -8,12 +8,14 @@ namespace STVRogue {
         public string playerLocation;
         public string turn;
         public string packLocations;
+        public string playerHealth;
 
         public Game g;
         public string file;
 
         public const string START = "START";
         public const string ItemInBagPrefix = "Number of items: ";
+        public const string playerHealthPrefix = "Player HP: ";
         public const string PackCountPrefix = "Pack count: ";
         public const string bagPrefix = "Bag content: ";
         public const string playerLocationPrefix = "Player location: ";
@@ -26,6 +28,7 @@ namespace STVRogue {
             this.file = file;
             this.g.dungeon.player.bag = ExtractBag();
             this.g.dungeon.player.location = g.dungeon.nodeList[GetVal(playerLocationPrefix)];
+            this.g.dungeon.player.HP = GetVal("Player HP:");
             this.g.dungeon.turn = GetVal(turnPrefix);
             this.g.dungeon.packs = ExtractPacks();
         }
@@ -34,6 +37,7 @@ namespace STVRogue {
             this.g = g;
             this.playerItems = BagToString(g.dungeon.player.bag);
             this.playerLocation = NodeToString(g.dungeon.player.location);
+            this.playerHealth = g.dungeon.player.HP.ToString();
             this.turn = g.dungeon.turn.ToString();
             this.packLocations = PacksToString(g.dungeon.packs);
         }
@@ -58,6 +62,7 @@ namespace STVRogue {
         public override string ToString() {
             return START + " " + turnPrefix + turn + "; \n"
                 + bagPrefix + playerItems + ";" + "\n"
+                + playerHealthPrefix + playerHealth + ";" + "\n"
                 + playerLocationPrefix + playerLocation + ";" + "\n"
                 + packLocations
                 + END + "\n";
