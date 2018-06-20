@@ -1,0 +1,44 @@
+START Turn: 46; 
+Bag content: Number of items: 1;
+Crystal 0: no;, used: no;
+;
+Player HP: 9;
+Player location: 22;
+Pack count: 7;
+Location: 0;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 4;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 8;
+Monsters on this location: 3;
+------------------
+Monster: 0 with HP: 5; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+Monster: 2 with HP: 5; and attackrating: 1;
+------------------
+Location: 9;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 12;
+Monsters on this location: 5;
+------------------
+Monster: 0 with HP: 4; and attackrating: 1;
+Monster: 1 with HP: 1; and attackrating: 1;
+Monster: 2 with HP: 3; and attackrating: 1;
+Monster: 3 with HP: 2; and attackrating: 1;
+Monster: 4 with HP: 3; and attackrating: 1;
+------------------
+Location: 18;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 22;
+Monsters on this location: 0;
+------------------
+------------------
+END

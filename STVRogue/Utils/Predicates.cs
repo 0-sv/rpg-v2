@@ -34,13 +34,10 @@ namespace STVRogue.Utils
             {
                 x0 = todo[0]; todo.RemoveAt(0);
                 seen.Add(x0);
-                //Console.WriteLine("++ marking " + x0.id + " as seen");
                 foreach (Node y in x0.neighbors)
                 {
-                    //Console.WriteLine("-- considering " + x0.id + " -> " + y.id);
                     if (!seen.Contains(y) && !todo.Contains(y))
                     {
-                        //Console.WriteLine("++ adding " + y.id + " to todo-list");
                         todo.Add(y);
                     }
                 }

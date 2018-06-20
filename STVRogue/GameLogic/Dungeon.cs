@@ -38,9 +38,8 @@ namespace STVRogue.GameLogic
 			startNode = nodeList[0];
 			exitNode = nodeList[nodeList.Count - 1];
 			amountOfMonsters = new int[difficultyLevel + 1];
-			packs = addpacks(numberOfMonsters);
-
 			player.Move(startNode);
+			packs = addpacks(numberOfMonsters);
 			int totalMonsterHP = calculateTotalMonsterHP();
 			items = additems(totalMonsterHP, bridges[bridges.Length - 1], player.HPbase);
 			turn = 0;

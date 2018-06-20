@@ -204,7 +204,8 @@ namespace UnitTests
 							foreach (Pack pack in gamestate1.g.dungeon.nodeList[i].packs)
 							{								
 								
-								Always always = new Always((G => G.dungeon.Shortestpath(pack.location, G.dungeon.player.location).Count() == G.dungeon.Shortestpath(gamestate.g.dungeon.nodeList[i].packs[counter++].location, G.dungeon.player.location).Count()));
+								Always always = new Always((G => G.dungeon.Shortestpath(pack.location, G.dungeon.player.location).Count() <= G.dungeon.Shortestpath(gamestate.g.dungeon.nodeList[i].packs[counter++].location, G.dungeon.player.location).Count()));
+							//	Console.WriteLine(gamestate1.g.dungeon.Shortestpath(pack.location, gamestate1.g.dungeon.player.location).Count());
 								Assert.True(always.test(gamestate1.g));
 							}
 						}
@@ -215,45 +216,44 @@ namespace UnitTests
 			}
 
 		}
-		/*
+		
 		[Fact]
 		public void test_RAlert()
 		{
-			int l, c, m;
-			Node loc;
-			bool REndZone = false;
-			for (int k = 1; k < 9; k++)
-			{
-				if (k < 5)
-				{
-					l = 5;
-				}
-				else
-				{
-					l = 10;
-				}
-				if (k % 2 == 0)
-				{
-					c = 3;
-				}
-				else
-				{
-					c = 2;
-				}
-				if (k == 3 || k == 4 || k == 7 || k == 8)
-				{
-					m = 50;
-				}
-				else
-				{
-					m = 30;
-				}
-				g = new Game(l, c, m, true);
+			int level, counter = 0;
+			int[] turns = new int[4];
+			// 4 turns wherein combat starts
+			turns[0] = 0;
+			turns[1] = 6;
+			turns[2] = 31;
+			turns[3] = 39;
+				g = new Game(5,2,30, true);
 				gs = new Gamestate(g);
 				savegame = new Savegame(gs);
-				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
+				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game9/game9_turn";
+			for (int j = 0; j < turns.Length; j++)
+			{
+				for (int h = j; h < j + 2; h++)
+				{
+					data = savegame.OpenFile(h, path);
+					Gamestate gamestate1 = new Gamestate(g, data);
+					data = savegame.OpenFile(h + 1, path);
+					Gamestate gamestate = new Gamestate(g, data);
+					level = gamestate1.g.dungeon.CurrentLevel(gamestate1.g.dungeon.player.location);
+					for (int i = (level * 4); i < (level * 4) + 3; i++)
+					{
+						counter = 0;
+						foreach (Pack pack in gamestate1.g.dungeon.nodeList[i].packs)
+						{
+							Always always = new Always((G => G.dungeon.Shortestpath(pack.location, G.dungeon.player.location).Count() <= G.dungeon.Shortestpath(gamestate.g.dungeon.nodeList[i].packs[counter++].location, G.dungeon.player.location).Count()));
+							Assert.True(always.test(gamestate1.g));
+						}
+					}
+				}
 			}
-			*/
+			
+		}
+			
 
 
 
