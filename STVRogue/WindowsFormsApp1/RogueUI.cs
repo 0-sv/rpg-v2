@@ -19,15 +19,15 @@ namespace STVRogue {
         int packBeingAttacked = 0;
         public RogueUI() {
             InitializeComponent();
-            game = new Game(5, 1, 20);
+            game = new Game(5, 2, 30, false);
             UpdateGame();
         }
 
         public void UpdateGame() {
-            //	Gamestate gamestate = new Gamestate(game);
-            //	Savegame savegame = new Savegame(gamestate);
-            //	savegame.SaveTurn();
-            //	gameplay.AddGamestate(gamestate);
+       //     	Gamestate gamestate = new Gamestate(game);
+        //    	Savegame savegame = new Savegame(gamestate);
+       //     	savegame.SaveTurn();
+       //     	gameplay.AddGamestate(gamestate);
             if (game.dungeon.player.HP == 0) {
                 button1.Hide();
                 button2.Hide();

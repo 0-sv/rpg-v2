@@ -13,11 +13,12 @@ namespace STVRogue.GameLogic
 	{
 		public Dungeon dungeon;
 		
-		public Game(int difficultyLevel, int nodeCapacityMultiplier, int numberOfMonsters) {
+		public Game(int difficultyLevel, int nodeCapacityMultiplier, int numberOfMonsters, bool testing) {
             Logger.log("Creating a game of difficulty level " + difficultyLevel + ", node capacity multiplier "
                                    + nodeCapacityMultiplier + ", and " + numberOfMonsters + " monsters.");
-            dungeon = new Dungeon(difficultyLevel, nodeCapacityMultiplier, numberOfMonsters);
+            dungeon = new Dungeon(difficultyLevel, nodeCapacityMultiplier, numberOfMonsters, testing);
         }
+		
     }
 
 	public class GameCreationException : Exception
@@ -28,4 +29,5 @@ namespace STVRogue.GameLogic
 			explanation = "The dungeon is not a valid dungeon!";
 		}
 	}
+	
 }

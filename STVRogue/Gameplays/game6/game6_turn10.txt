@@ -1,0 +1,75 @@
+START Turn: 10; 
+Bag content: Number of items: 1;
+Crystal 0: yes;, used: no;
+;
+Player HP: 9;
+Player location: 19;
+Pack count: 10;
+Location: 11;
+Monsters on this location: 1;
+------------------
+Monster: 0 with HP: 4; and attackrating: 1;
+------------------
+Location: 15;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 19;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 19;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 21;
+Monsters on this location: 2;
+------------------
+Monster: 0 with HP: 3; and attackrating: 1;
+Monster: 1 with HP: 2; and attackrating: 1;
+------------------
+Location: 25;
+Monsters on this location: 3;
+------------------
+Monster: 0 with HP: 5; and attackrating: 1;
+Monster: 1 with HP: 4; and attackrating: 1;
+Monster: 2 with HP: 2; and attackrating: 1;
+------------------
+Location: 31;
+Monsters on this location: 3;
+------------------
+Monster: 0 with HP: 5; and attackrating: 1;
+Monster: 1 with HP: 1; and attackrating: 1;
+Monster: 2 with HP: 2; and attackrating: 1;
+------------------
+Location: 32;
+Monsters on this location: 4;
+------------------
+Monster: 0 with HP: 6; and attackrating: 1;
+Monster: 1 with HP: 4; and attackrating: 1;
+Monster: 2 with HP: 3; and attackrating: 1;
+Monster: 3 with HP: 4; and attackrating: 1;
+------------------
+Location: 36;
+Monsters on this location: 4;
+------------------
+Monster: 0 with HP: 5; and attackrating: 1;
+Monster: 1 with HP: 3; and attackrating: 1;
+Monster: 2 with HP: 3; and attackrating: 1;
+Monster: 3 with HP: 3; and attackrating: 1;
+------------------
+Location: 42;
+Monsters on this location: 10;
+------------------
+Monster: 0 with HP: 2; and attackrating: 1;
+Monster: 1 with HP: 6; and attackrating: 1;
+Monster: 2 with HP: 3; and attackrating: 1;
+Monster: 3 with HP: 4; and attackrating: 1;
+Monster: 4 with HP: 2; and attackrating: 1;
+Monster: 5 with HP: 2; and attackrating: 1;
+Monster: 6 with HP: 4; and attackrating: 1;
+Monster: 7 with HP: 1; and attackrating: 1;
+Monster: 8 with HP: 6; and attackrating: 1;
+Monster: 9 with HP: 5; and attackrating: 1;
+------------------
+END

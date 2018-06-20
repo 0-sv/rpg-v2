@@ -12,7 +12,7 @@ namespace UnitTests {
         string contentOfBag;
         string packString;
         public GamestateTest() {
-            g = new Game(20, 1, 50);
+            g = new Game(20, 1, 50,false);
             gs = new Gamestate(g);
             bag = new List<Item>();
             bag.Add(new HealingPotion("0"));
@@ -59,7 +59,7 @@ namespace UnitTests {
 
         [Fact]
         public void WriteSaveGameForPackString() {
-            Game withPacks = new Game(5, 2, 10);
+            Game withPacks = new Game(5, 2, 10,false);
             Gamestate withPacksGS = new Gamestate(withPacks);
             Savegame savegame = new Savegame(withPacksGS);
             savegame.SaveTurn();
@@ -69,7 +69,7 @@ namespace UnitTests {
 
         [Fact]
         public void GameStateIsSameAsBefore() {
-            Game withItems = new Game(5, 2, 20);
+            Game withItems = new Game(5, 2, 20,false);
             withItems.dungeon.player.PickUp(new HealingPotion("0"));
             withItems.dungeon.player.PickUp(new HealingPotion("1"));
             withItems.dungeon.player.PickUp(new HealingPotion("2"));

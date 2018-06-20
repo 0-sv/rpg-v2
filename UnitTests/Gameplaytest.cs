@@ -13,7 +13,7 @@ namespace UnitTests {
         Gamestate gs;
         Savegame savegame;
         public Gameplaytest() {
-            g = new Game(5, 1, 5);
+            g = new Game(5, 1, 5, false);
             g.dungeon.player.bag.Add(new HealingPotion("0"));
             gs = new Gamestate(g);
             savegame = new Savegame(gs);

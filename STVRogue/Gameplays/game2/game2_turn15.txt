@@ -1,0 +1,58 @@
+START Turn: 15; 
+Bag content: Number of items: 1;
+Crystal 0: yes;, used: no;
+;
+Player HP: 6;
+Player location: 9;
+Pack count: 6;
+Location: 1;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 7;
+Monsters on this location: 0;
+------------------
+------------------
+Location: 9;
+Monsters on this location: 3;
+------------------
+Monster: 0 with HP: 5; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+Monster: 2 with HP: 5; and attackrating: 1;
+------------------
+Location: 12;
+Monsters on this location: 5;
+------------------
+Monster: 0 with HP: 5; and attackrating: 1;
+Monster: 1 with HP: 3; and attackrating: 1;
+Monster: 2 with HP: 6; and attackrating: 1;
+Monster: 3 with HP: 1; and attackrating: 1;
+Monster: 4 with HP: 5; and attackrating: 1;
+------------------
+Location: 19;
+Monsters on this location: 7;
+------------------
+Monster: 0 with HP: 3; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+Monster: 2 with HP: 5; and attackrating: 1;
+Monster: 3 with HP: 2; and attackrating: 1;
+Monster: 4 with HP: 3; and attackrating: 1;
+Monster: 5 with HP: 5; and attackrating: 1;
+Monster: 6 with HP: 6; and attackrating: 1;
+------------------
+Location: 22;
+Monsters on this location: 11;
+------------------
+Monster: 0 with HP: 1; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+Monster: 2 with HP: 5; and attackrating: 1;
+Monster: 3 with HP: 1; and attackrating: 1;
+Monster: 4 with HP: 5; and attackrating: 1;
+Monster: 5 with HP: 6; and attackrating: 1;
+Monster: 6 with HP: 4; and attackrating: 1;
+Monster: 7 with HP: 2; and attackrating: 1;
+Monster: 8 with HP: 5; and attackrating: 1;
+Monster: 9 with HP: 1; and attackrating: 1;
+Monster: 10 with HP: 1; and attackrating: 1;
+------------------
+END
