@@ -29,3 +29,7 @@ C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.reporters.net452.dll
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.utility.net452.dll
 C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.abstractions.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.reporters.net452.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\bin\Debug\xunit.abstractions.dll

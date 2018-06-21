@@ -328,6 +328,15 @@ namespace STVRogue.GameLogic
 		{
 			return p.countNumberOfBridges(startNode, d);
 		}
+
+        public int countMonsters()
+        {
+            int count = 0;
+            foreach (Pack p in packs)
+                foreach (Monster m in p.members)
+                    count++;
+            return count;
+        }
 	}
 }
 

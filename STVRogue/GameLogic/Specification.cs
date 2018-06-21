@@ -24,7 +24,7 @@ namespace STVRogue.GameLogic {
         private Predicate<Game> p;
         private Predicate<Game> q;
         public Unless(Predicate<Game> p, Predicate<Game> q) { this.p = p; this.q = q; }
-        List<bool> history;
+        List<bool> history = new List<bool>();
         public bool test(Game G)
         {
             bool verdict;

@@ -31,3 +31,15 @@ C:\Users\win7\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFor
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.runner.reporters.net452.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\xunit.abstractions.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\STVRogue.dll
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\bin\Debug\STVRogue.pdb
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csprojResolveAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\STVRogue.RogueUI.resources
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Gebruiker\Documents\GitHub\Software-Testing-Assignment-2\STVRogue\WindowsFormsApp1\obj\Debug\RogueUI.csproj.GenerateResource.Cache
