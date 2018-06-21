@@ -61,6 +61,7 @@
     <Compile Include="Gameplaytest.cs" />
     <Compile Include="GameStateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnlessTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\STVRogue\STVRogue.csproj">

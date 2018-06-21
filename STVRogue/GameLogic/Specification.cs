@@ -21,9 +21,22 @@ namespace STVRogue.GameLogic {
 
     public class Unless : Specification
     {
-        private Predicate<Game> p1;
-        private Predicate<Game> p2;
-        public Unless(Predicate<Game> p1, Predicate<Game> p2) { this.p1 = p1; this.p2 = p2; }
-        public bool test(Game G) { return p1(G) || p2(G); }
+        private Predicate<Game> p;
+        private Predicate<Game> q;
+        public Unless(Predicate<Game> p, Predicate<Game> q) { this.p = p; this.q = q; }
+        List<bool> history;
+        public bool test(Game G)
+        {
+            bool verdict;
+            if (history.Count >= 1)
+            {
+                bool previous = history.Last();
+                verdict = !previous || (previous && (p(G) || q(G)));
+            }
+            else
+                verdict = true;
+            history.Add(p(G) && !q(G));
+            return verdict;
+        }
     }
 }
