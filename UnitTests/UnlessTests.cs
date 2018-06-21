@@ -66,7 +66,7 @@ namespace UnitTests
                 savegame = new Savegame(gs);
                 for (int j = 1; j < 6; j++)
                 {
-                    path = @"C:/Users/Gebruiker/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
+                    path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
                     Unless unless = new Unless(G => G.dungeon.numberOfMonsters > G.dungeon.countMonsters(), G => G.dungeon.numberOfMonsters == G.dungeon.countMonsters());
                     for (int i = 0; i < gameturns[k - 1]; i++)
                     {

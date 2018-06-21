@@ -78,7 +78,7 @@ namespace UnitTests
 				gs = new Gamestate(g);
 				savegame = new Savegame(gs);
 
-				path = @"C:/Users/Gebruiker/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
+				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
 				for (int i = 0; i < gameturns[k - 1]; i++)
 				{
 					counter = 0;
@@ -128,7 +128,7 @@ namespace UnitTests
 				g = new Game(l, c, m, true);
 				gs = new Gamestate(g);
 				savegame = new Savegame(gs);
-				path = @"C:/Users/Gebruiker/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
+				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
 				for (int i = 0; i < gameturns[k - 1]; i++)
 				{
 					data = savegame.OpenFile(i, path);
@@ -184,7 +184,7 @@ namespace UnitTests
 				g = new Game(l, c, m, true);
 				gs = new Gamestate(g);
 				savegame = new Savegame(gs);
-				path = @"C:/Users/Gebruiker/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
+				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game" + k + "/game" + k + "_turn";
 				for (int j = 0; j < gameturns[k - 1]-1; j++)
 				{
 					counter = 0;
@@ -230,7 +230,7 @@ namespace UnitTests
 				g = new Game(5,2,30, true);
 				gs = new Gamestate(g);
 				savegame = new Savegame(gs);
-				path = @"C:/Users/Gebruiker/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game9/game9_turn";
+				path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game9/game9_turn";
 			for (int j = 0; j < turns.Length; j++)
 			{
 				for (int h = j; h < j + 2; h++)
