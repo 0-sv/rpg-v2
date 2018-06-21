@@ -222,7 +222,7 @@ namespace UnitTests
 		{
 			int level, counter = 0;
 			int[] turns = new int[4];
-			// 4 turns wherein combat starts
+			// 4 turns in which combat starts
 			turns[0] = 0;
 			turns[1] = 6;
 			turns[2] = 31;
