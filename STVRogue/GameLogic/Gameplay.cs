@@ -11,7 +11,7 @@ namespace STVRogue
 		private int offset;
 		private FileStream fs;
 		private Gamestate gs;
-		private string path = @"C:/Users/win7/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game9/game9_turn";
+		private string path = @"C:/Users/Gebruiker/Documents/GitHub/Software-Testing-Assignment-2/STVRogue/Gameplays/game9/game9_turn";
 
 		public Savegame(Gamestate gs)
 		{

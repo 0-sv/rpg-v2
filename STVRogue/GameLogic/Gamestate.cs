@@ -131,12 +131,7 @@ namespace STVRogue {
                     new Node(GetVal("Location:").ToString()), 
                     true, 
                     g.dungeon);
-                for (int j = 0; j < GetVal("numOfPacks:"); ++j) {
-                    Monster newMonster = new Monster(j.ToString());
-                    newMonster.HP = GetVal("Monster: " + j.ToString() + "with HP:");
-                    newMonster.AttackRating = GetVal("Monster " + j.ToString() + "with HP:" + newMonster.HP + " and attackrating: ");
-                    newPack.AddMonster(newMonster);
-                }
+                result.Add(newPack);
             }
             return result;
         }
