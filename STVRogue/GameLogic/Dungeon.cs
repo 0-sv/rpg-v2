@@ -336,7 +336,12 @@ namespace STVRogue.GameLogic
 
 		public int CurrentLevel(Node d)
 		{
-			return p.countNumberOfBridges(startNode, d);
+            int lvl = 0;
+            List<Node> path = Shortestpath(startNode, d);
+            foreach (Node n in path)
+                if (n is Bridge)
+                    lvl++;
+            return lvl;
 		}
 
         public int countMonsters()
