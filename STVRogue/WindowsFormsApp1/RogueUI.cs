@@ -12,7 +12,6 @@ using STVRogue.GameLogic;
 namespace STVRogue {
     public partial class RogueUI : Form {
         public Game game;
-       // 	public Gameplay gameplay =  new Gameplay(0);
 
         public bool inCombat = false;
         public bool packChosen = false;
@@ -24,10 +23,6 @@ namespace STVRogue {
         }
 
         public void UpdateGame() {
-          //  	Gamestate gamestate = new Gamestate(game);
-          //  	Savegame savegame = new Savegame(gamestate);
-          //  	savegame.SaveTurn();
-          //  	gameplay.AddGamestate(gamestate);
             if (game.dungeon.player.HP == 0) {
                 button1.Hide();
                 button2.Hide();

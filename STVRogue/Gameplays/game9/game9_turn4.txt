@@ -2,63 +2,67 @@ START Turn: 4;
 Bag content: Number of items: 0;
 ;
 Player HP: 10;
-Player location: 2;
-Pack count: 7;
-Location: 0;
+Player location: 3;
+Pack count: 8;
+Location: 1;
 Monsters on this location: 0;
 ------------------
 ------------------
-Location: 6;
+Location: 4;
 Monsters on this location: 2;
 ------------------
 Monster: 0 with HP: 5; and attackrating: 1;
-Monster: 1 with HP: 1; and attackrating: 1;
-------------------
-Location: 9;
-Monsters on this location: 3;
-------------------
-Monster: 0 with HP: 5; and attackrating: 1;
 Monster: 1 with HP: 5; and attackrating: 1;
-Monster: 2 with HP: 5; and attackrating: 1;
 ------------------
-Location: 9;
+Location: 7;
+Monsters on this location: 4;
+------------------
+Monster: 0 with HP: 4; and attackrating: 1;
+Monster: 1 with HP: 3; and attackrating: 1;
+Monster: 2 with HP: 2; and attackrating: 1;
+Monster: 3 with HP: 2; and attackrating: 1;
+------------------
+Location: 14;
+Monsters on this location: 5;
+------------------
+Monster: 0 with HP: 6; and attackrating: 1;
+Monster: 1 with HP: 4; and attackrating: 1;
+Monster: 2 with HP: 1; and attackrating: 1;
+Monster: 3 with HP: 4; and attackrating: 1;
+Monster: 4 with HP: 2; and attackrating: 1;
+------------------
+Location: 13;
+Monsters on this location: 2;
+------------------
+Monster: 0 with HP: 1; and attackrating: 1;
+Monster: 1 with HP: 2; and attackrating: 1;
+------------------
+Location: 16;
+Monsters on this location: 4;
+------------------
+Monster: 0 with HP: 3; and attackrating: 1;
+Monster: 1 with HP: 3; and attackrating: 1;
+Monster: 2 with HP: 6; and attackrating: 1;
+Monster: 3 with HP: 5; and attackrating: 1;
+------------------
+Location: 14;
 Monsters on this location: 1;
 ------------------
 Monster: 0 with HP: 3; and attackrating: 1;
 ------------------
-Location: 12;
-Monsters on this location: 5;
-------------------
-Monster: 0 with HP: 4; and attackrating: 1;
-Monster: 1 with HP: 1; and attackrating: 1;
-Monster: 2 with HP: 3; and attackrating: 1;
-Monster: 3 with HP: 2; and attackrating: 1;
-Monster: 4 with HP: 3; and attackrating: 1;
-------------------
 Location: 18;
-Monsters on this location: 7;
-------------------
-Monster: 0 with HP: 3; and attackrating: 1;
-Monster: 1 with HP: 4; and attackrating: 1;
-Monster: 2 with HP: 3; and attackrating: 1;
-Monster: 3 with HP: 3; and attackrating: 1;
-Monster: 4 with HP: 6; and attackrating: 1;
-Monster: 5 with HP: 3; and attackrating: 1;
-Monster: 6 with HP: 4; and attackrating: 1;
-------------------
-Location: 22;
 Monsters on this location: 11;
 ------------------
-Monster: 0 with HP: 5; and attackrating: 1;
-Monster: 1 with HP: 2; and attackrating: 1;
-Monster: 2 with HP: 2; and attackrating: 1;
-Monster: 3 with HP: 6; and attackrating: 1;
-Monster: 4 with HP: 6; and attackrating: 1;
-Monster: 5 with HP: 4; and attackrating: 1;
+Monster: 0 with HP: 4; and attackrating: 1;
+Monster: 1 with HP: 5; and attackrating: 1;
+Monster: 2 with HP: 5; and attackrating: 1;
+Monster: 3 with HP: 2; and attackrating: 1;
+Monster: 4 with HP: 4; and attackrating: 1;
+Monster: 5 with HP: 3; and attackrating: 1;
 Monster: 6 with HP: 4; and attackrating: 1;
-Monster: 7 with HP: 2; and attackrating: 1;
-Monster: 8 with HP: 6; and attackrating: 1;
+Monster: 7 with HP: 3; and attackrating: 1;
+Monster: 8 with HP: 4; and attackrating: 1;
 Monster: 9 with HP: 4; and attackrating: 1;
-Monster: 10 with HP: 1; and attackrating: 1;
+Monster: 10 with HP: 2; and attackrating: 1;
 ------------------
 END

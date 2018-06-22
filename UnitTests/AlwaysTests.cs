@@ -223,10 +223,10 @@ namespace UnitTests
 			int level, counter = 0;
 			int[] turns = new int[4];
 			// 4 turns in which combat starts
-			turns[0] = 0;
-			turns[1] = 6;
-			turns[2] = 31;
-			turns[3] = 39;
+			turns[0] = 1;
+			turns[1] = 10;
+			turns[2] = 22;
+			turns[3] = 34;
 				g = new Game(5,2,30, true);
 				gs = new Gamestate(g);
 				savegame = new Savegame(gs);
